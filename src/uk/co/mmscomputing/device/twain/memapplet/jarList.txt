@@ -1,0 +1,11 @@
+uk/co/mmscomputing/concurrent
+uk/co/mmscomputing/device/
+uk/co/mmscomputing/device/scanner
+uk/co/mmscomputing/device/twain
+uk/co/mmscomputing/device/twain/memapplet
+uk/co/mmscomputing/device/twain/win32/jtwain.dll
+uk/co/mmscomputing/imageio/bmp
+uk/co/mmscomputing/images/
+uk/co/mmscomputing/util
+uk/co/mmscomputing/util/configuration
+uk/co/mmscomputing/util/metadata

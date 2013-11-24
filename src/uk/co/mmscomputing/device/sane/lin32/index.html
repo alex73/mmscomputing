@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing - libjsane.so: 32 bit linux c library for jsane wrapper</title>
+<meta name="description" content="libjsane.so : The jsane cpp library for linux.">
+<link rel=StyleSheet href="../../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../../index.html">home</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+libjsane.so : The jsane cpp library for linux.
+</div>
+<div id="desc">
+<p>Linux libjsane.so:
+	  <ol>
+	  <li>you need (i.e. SuSE 8.2):
+	  <br> - /usr/lib/libsane.so
+	  <br> - java sdk i.e. Sun's 1.4.2 which you will find by default in /usr/java/j2sdk1.4.2/
+	  <br> - /usr/java/j2sdk1.4.2/include/jni.h   <em class="remark">(you need to put these in the compilers search path)</em>
+	  <br> - /usr/java/j2sdk1.4.2/include/linux/jni_md.h
+	  <br> - sane.h (slightly different to &lt;sane/sane.h&gt;)
+	  <br> - ../uk_co_mmscomputing_device_sane_jsane.h
+    <li>open console and cd to jsane.cpp directory
+	  <li>compile jsane.cpp and therefore generate the library libjsane.so like this :
+    <br><i>g++ -Wall -fPIC -pthread -D_REENTRANT -D_GNU_SOURCE -shared -o libjsane.so jsane.cpp jdesc.cpp jnu.cpp</i>
+    </li>
+	  <li>put libjsane.so into library path of java program (4 possibilities):
+      <ol>
+      <li>use <i>-Djava.library.path=...</i> option, when you start the program. 
+<!--  <em class="remark">(See <a href="../../../application/answerphone/index.html">uk/co/mmscomputing/application/answerphone</a>.)</em>-->
+      <li>copy libjsane.so to the java virtual machine's library folder <i>/usr/java/j2sdk1.4.2/jre/lib/i386</i> <em class="remark">(Available for all programs started with this jvm [java virtual machine])</em>
+      <li>or copy libjsane.so to the operating system's library folder <i>/usr/lib</i>. <em class="remark">(Available for all java programs and jvms)</em>
+      <li>or use <i>uk.co.mmscomputing.util.JarLib.load(...)</i>
+      </ol>
+    </ol>
+</p>
+
+
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.device.sane.lin32
+<ol>
+<li><a href="../uk_co_mmscomputing_device_sane_jsane.h">../uk_co_mmscomputing_device_sane_jsane.h</a></li>
+<li><a href="jdesc.cpp">jdesc.cpp</a></li>
+<li><a href="jnu.cpp">jnu.cpp</a></li>
+<li><a href="jnu.h">jnu.h</a></li>
+<li><a href="jsane.cpp">jsane.cpp</a></li>
+<li><a href="jsane.h">jsane.h</a></li>
+<li><a href="libjsane.so">libjsane.so</a></li>
+<li><a href="sane.h">sane.h</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../../uk/co/mmscomputing/util/index.html">uk.co.mmscomputing.util</a>:
+<br>A few useful utility classes
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

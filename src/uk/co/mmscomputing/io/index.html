@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mmsc - Modified Huffman (MH), Modified READ (MR), Modified Modified READ (MMR), Base-64, PackBits In/OutputStream</title>
+<meta name="keywords" content="java fax huffman coding MH modified READ MR MMR Base64 PackBits">
+<meta name="description" content="A few io-stream classes. Modified Huffman (MH), Modified READ (MR), Modified Modified READ (MMR), Base-64, PackBits, Little Endian">
+<link rel=StyleSheet href="../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../index.html">home</a></li>
+<li><a href="../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+A few io-stream classes. Modified Huffman (MH), Modified READ (MR), Modified Modified READ (MMR), Base-64, PackBits, Little Endian
+</div>
+<div id="desc">
+<ol>
+<li>LEInputStream and LEOutputStream : These classes deal with little endian streams.
+<li>BitInputStream, BitOutputStream : Convert a bit stream into a byte stream (vice versa).
+<li>PackBitsInputStream : Read Apples PackBits codes ([1] p.42)
+<li>ModHuffmanTable : modified huffman code table.
+<br>ModHuffmanInputStream, ModHuffmanOutputStream : 
+Convert run length codes into Modified Huffman code and vice versa (MH).
+<li>ModREADTable : READ code table.
+<br>ModModREADInputStream, ModModREADOutputStream : 
+Convert run length codes into MMR code stream, vice versa.
+<br>ModREADInputStream, ModREADOutputStream : 
+Convert run length codes into MR code stream, vice versa.
+<li>Base64Table : base 64 code table.
+<br>Base64InputStream, Base64OutputStream : 
+Convert binary data into base 64 codes. Needed to safely send binary attachments via email.
+</ol>
+
+<p class="remark">
+   "The ITU-T T.4
+   recommendation defines a one-dimensional compression method known as
+   Modified Huffman (MH) and a two-dimensional method known as Modified
+   READ (MR) (READ is short for Relative Element Address Designate).  In
+   1984, a somewhat more efficient compression method known as Modified
+   Modified READ (MMR) was defined in the T.6 recommendation.  It was
+   originally defined for use with Group 4 facsimile, so that this
+   compression method has been commonly called Group 4 compression.  In
+   1991, the MMR method was approved for use in Group 3 facsimile and
+   has since been widely utilized." [2]
+</p>
+
+<p class="quote">[1] Tagged Image File Format Version 6 <a href="http://partners.adobe.com/public/developer/en/tiff/TIFF6.pdf" target="_blank">TIFF6.pdf</a> 
+Adobe [last accessed : 2005-07-30]</p>
+
+<p class="quote">[2] RFC 2306 - Tag Image File Format (TIFF) - F Profile for Facsimile <a href="http://www.faqs.org/rfcs/rfc2306.html" target="_blank">RFC 2306</a> 
+ [last accessed : 2005-08-26]</p>
+
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.io
+<ol>
+<li><a href="Base64InputStream.java">Base64InputStream.java</a></li>
+<li><a href="Base64OutputStream.java">Base64OutputStream.java</a></li>
+<li><a href="Base64Table.java">Base64Table.java</a></li>
+<li><a href="BitInputStream.java">BitInputStream.java</a></li>
+<li><a href="BitOutputStream.java">BitOutputStream.java</a></li>
+<li><a href="BitSwapInputStream.java">BitSwapInputStream.java</a></li>
+<li><a href="BitSwapOutputStream.java">BitSwapOutputStream.java</a></li>
+<li><a href="BitSwapTable.java">BitSwapTable.java</a></li>
+<li><a href="IntFilterInputStream.java">IntFilterInputStream.java</a></li>
+<li><a href="InvertedInputStream.java">InvertedInputStream.java</a></li>
+<li><a href="LEInputStream.java">LEInputStream.java</a></li>
+<li><a href="LEOutputStream.java">LEOutputStream.java</a></li>
+<li><a href="LZWInputStream.java">LZWInputStream.java</a></li>
+<li><a href="ModHuffmanInputStream.java">ModHuffmanInputStream.java</a></li>
+<li><a href="ModHuffmanOutputStream.java">ModHuffmanOutputStream.java</a></li>
+<li><a href="ModHuffmanTable.java">ModHuffmanTable.java</a></li>
+<li><a href="ModModREADInputStream.java">ModModREADInputStream.java</a></li>
+<li><a href="ModModREADOutputStream.java">ModModREADOutputStream.java</a></li>
+<li><a href="ModREADInputStream.java">ModREADInputStream.java</a></li>
+<li><a href="ModREADOutputStream.java">ModREADOutputStream.java</a></li>
+<li><a href="ModREADTable.java">ModREADTable.java</a></li>
+<li><a href="MultiByteInputStream.java">MultiByteInputStream.java</a></li>
+<li><a href="PackBitsInputStream.java">PackBitsInputStream.java</a></li>
+<li><a href="READOutputStream.java">READOutputStream.java</a></li>
+<li><a href="RGBInputStream.java">RGBInputStream.java</a></li>
+<li><a href="RLEBit1OutputStream.java">RLEBit1OutputStream.java</a></li>
+<li><a href="RLEBitInputStream.java">RLEBitInputStream.java</a></li>
+<li><a href="RLEBitOutputStream.java">RLEBitOutputStream.java</a></li>
+<li><a href="RLEInputStream.java">RLEInputStream.java</a></li>
+<li><a href="RLEOutputStream.java">RLEOutputStream.java</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../uk/co/mmscomputing/application/imageviewer/index.html">uk.co.mmscomputing.application.imageviewer</a>:
+<br>A simple Multi Page Image Viewer Applet. To view multipage *.sff, *.tiff and *.gif files. Twain and SANE test application.
+</li>
+<li><a href="../../../../uk/co/mmscomputing/imageio/sff/index.html">uk.co.mmscomputing.imageio.sff</a>:
+<br>Classes that enable the java imageio system to read and write *.sff (structured fax format) files.
+</li>
+<li><a href="../../../../uk/co/mmscomputing/imageio/tiff/index.html">uk.co.mmscomputing.imageio.tiff</a>:
+<br>Classes that enable the java imageio system to read and write *.tif (Tagged Image File Format ) files.
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

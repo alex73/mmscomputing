@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mms-computing - Simple applications using java capi wrapper (Voice Box, DTMF Actuator ...)</title>
+<meta name="description" content="A few simple capi test programs.">
+<link rel=StyleSheet href="../../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../../index.html">home</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+A few simple capi test programs.
+</div>
+<div id="desc">
+<p><b>GetProfile :</b> This program retrieves the isdn-cards capability information. The print out should look like <a href="eicondiva.txt">eicondiva.txt</a>.
+
+<p><b>SimpleSpeechReceive :</b> This program listens to incoming calls. If somebody calls, SimpleSpeechReceive picks up the 'phone' and saves the bytes coming from the telephone network in a file called
+<i>uk/co/mmscomputing/device/capi/samples/capture.raw</i>.
+
+<p><b>SimpleSpeechSend :</b> A program that sends <i>uk/co/mmscomputing/device/capi/samples/capture.raw</i> to a 'remote' phone.
+SimpleSpeechSend needs a valid telephone number : <i>java uk.co.mmscomputing.device.capi.samples.SimpleSpeechSend 004412345678</i>
+
+<p class="remark">(Run SimpleSpeechReceive first, say your 'Hello world, I feel great!' when connected, then run SimpleSpeechSend and listen to your own voice.)
+</p>
+<p class="remark">(In case you wonder what to do with the raw byte stream, have a look at project 
+<a href="../sound"><i>uk.co.mmscomputing.device.capi.sound</i></a>, <a href="../../../sound"><i>uk.co.mmscomputing.sound</i></a>.
+<br>Run <i>Raw2WaveConverter</i> to convert the raw <i>capture.raw</i> file into the wave files <i>capturePCM.wav</i>, <i>captureALaw.wav</i> and <i>captureuLaw.wav</i>)
+
+<!--<p><b>SimpleFaxReceive :</b> This program listens to incoming calls. If somebody calls, SimpleFaxReceive picks up the 'phone' and saves the bytes coming from the telephone network in a file called
+<i>uk/co/mmscomputing/device/capi/samples/testfax.sff</i>.-->
+
+<!--<p><b>SimpleFaxSend :</b> A program that sends <i>uk/co/mmscomputing/device/capi/samples/testfax.sff</i> to a 'remote' phone.
+SimpleFaxSend needs a valid telephone number : <i>java uk.co.mmscomputing.device.capi.samples.SimpleFaxSend 004412345678</i>
+-->
+
+<p class="remark">(Above programs are only very basic test programs !)
+</p>
+
+<p><b>SpeechSend :</b> A program that sends either a <b>raw</b> 'soundfile' or an audio file to the 'remoteno' phone.
+SpeechSend needs a valid telephone number and an audio source file: <i>java uk.co.mmscomputing.device.capi.samples.SpeechSend remoteno srcfile</i>
+
+<p><b>SimpleVoiceBox :</b> This program listens for incoming calls but accepts only the caller with phone number <i>remoteno</i>.
+After the program has accepted a call it sends all .wav files in <i>srcpath</i> to the caller.
+SimpleVoiceBox needs a valid telephone number and a path to a directory with <i>.wav</i> audio source files: <i>java uk.co.mmscomputing.device.capi.samples.SimpleVoiceBox remoteno srcpath</i>
+<p class="remark">(This works of course only, if your ISDN line supports <i>Caller Line Identification (CLI)</i> and the Caller does not withhold her number.
+<br>The remote number needs to be with (country) area code but without the leading zero(s).)
+</p>
+
+<p><b>SimpleDTMFActuator :</b> A program that accepts a call and then listens for a certain dtmf sequence.
+Once it has received this sequence it will run a command (i.e. script) in a seperate process.
+<br>SimpleDTMFActuator needs a DTMF sequence and a command: <i>java uk.co.mmscomputing.device.capi.samples.SimpleDTMFActuator dtmfs command</i>
+<br><i>java uk.co.mmscomputing.device.capi.samples.SimpleDTMFActuator 1234 "java -version"</i>
+</p>
+<p class="remark">(This will work only, if your card supports DTMF.)
+</p>
+<!--
+<p><b>FaxSend :</b> A program that sends 'srcfile' to a 'remoteno' fax machine.
+FaxSend needs a valid telephone number and sff source file: <i>java uk.co.mmscomputing.device.capi.samples.FaxSend remoteno srcfile</i>
+-->
+<p><b>Answerphone :</b> A command line answerphone application.
+
+<p><b>EchoPhone :</b> A <i>weird</i> program that calls 'remoteno' and echoes back whatever the remote peer sends.
+Its main purpose is to <i>hear</i> how big the latency is that (j)capi introduces. 
+<br>EchoPhone needs a valid telephone number : <i>java uk.co.mmscomputing.device.capi.samples.EchoPhone 004412345678</i>
+</p>
+<p class="remark">The latency depends on the size of the <i>maxBDataLen</i> in jcapi.register. The default is 256 bytes. 
+Hence at least 32 ms latency.
+</p>
+
+<p><b>TalkTo :</b> A program that calls 'remoteno'. It sends everything from the default audio input (i.e. microphone)
+to the remote phone and outputs everything it receives to the default audio output (i.e. speaker).
+Its main purpose is to hear how big the latency is that (j)capi + the java audio system introduces. 
+It is a simple caller application.
+</p>
+<p class="remark">The latency depends on the java audio system. 
+Depending on what mixer the system uses, the latency can be rather high (with rather strange sound effects; i.e whaleish). 
+<br>Newer versions of java use on WinXP by default DirectX, and on Linux the ALSA system (in my case: SuSE 9.1; java 1.5.0beta; Direct Audio Device: NVidia nForce2), which allows real time conversations.
+</p>
+
+<!--
+
+<p><b>FaxReceive :</b> This program listens to incoming fax calls. If somebody calls, FaxReceive picks up the 'phone' and saves the bytes coming from the telephone network in a file called
+<i>uk/co/mmscomputing/device/capi/samples/testfax.sff</i>.
+
+
+<p class="remark">(When you run FaxSend and pick up the phone yourself you should hear a beep every few seconds.)
+</p>
+<p>The only difference between the fax and speech versions is the setup of the line with different BProtocols (SpeechProtocol versus FaxBProtocol). The fax programs will only work as expected when the ISDN-card supports <i>T.30 modem for Group 3 fax</i> (run <i>GetProfile</i>). I.e.: Eicon's Diva Server Adapters.
+
+<p class="remark">If your ISDN-card does not support the fax protocols, but you desperatly want to use your card to send faxes, then one way to do it would be to write your own fax-emulation software !
+<br>If you try to attempt this and have any success with it get in contact with me, I would like to hear about it :)
+
+<p><b>FaxSend2 :</b> A program that sends an sff-file to a 'remote' fax machine. It uses the <i>application frame work</i>.
+<br><nobr><i>java uk.co.mmscomputing.device.capi.samples.FaxSend2 localnumber remoteno faxfilename</i>
+
+<p><b>FaxReceive2 :</b> A program that receives an sff-file from a 'remote' fax machine. It uses the <i>application frame work</i>.
+<br><nobr><i>java uk.co.mmscomputing.device.capi.samples.FaxReceive2 faxfilename</i>
+
+-->
+
+
+<p>SFF stands for <i>Structured Fax Format</i> and is defined in [1] Annex B.
+
+<p class="quote">[1] Common-ISDN-API Part I :<a href="http://www.capi.org/download/capi20-1.pdf" target="_blank">www.capi.org/download/capi20-1.pdf</a> CAPI Association e.V. [last accessed : 2003-06-24]</p>
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.device.capi.samples
+<ol>
+<li><a href="AVMDChannelTracer.java">AVMDChannelTracer.java</a></li>
+<li><a href="AnswerPhone.java">AnswerPhone.java</a></li>
+<li><a href="EchoPhone.java">EchoPhone.java</a></li>
+<li><a href="FaxReceiver.java">FaxReceiver.java</a></li>
+<li><a href="FaxSender.java">FaxSender.java</a></li>
+<li><a href="GetProfile.java">GetProfile.java</a></li>
+<li><a href="KeypadCodeSender.java">KeypadCodeSender.java</a></li>
+<li><a href="Raw2WaveConverter.java">Raw2WaveConverter.java</a></li>
+<li><a href="SimpleDTMFActuator.java">SimpleDTMFActuator.java</a></li>
+<li><a href="SimpleModemDataReceiver.java">SimpleModemDataReceiver.java</a></li>
+<li><a href="SimpleModemDataSender.java">SimpleModemDataSender.java</a></li>
+<li><a href="SimpleSpeechReceive.java">SimpleSpeechReceive.java</a></li>
+<li><a href="SimpleSpeechSend.java">SimpleSpeechSend.java</a></li>
+<li><a href="SimpleVoiceBox.java">SimpleVoiceBox.java</a></li>
+<li><a href="SpeechSend.java">SpeechSend.java</a></li>
+<li><a href="TalkTo.java">TalkTo.java</a></li>
+<li><a href="TerminalEchoServer.java">TerminalEchoServer.java</a></li>
+<li><a href="eicondiva.txt">eicondiva.txt</a></li>
+<li><a href="testfax.sff">testfax.sff</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../../uk/co/mmscomputing/application/answerphone/index.html">uk.co.mmscomputing.application.answerphone</a>:
+<br>Answer Phone Application.
+</li>
+<li><a href="../../../../../../uk/co/mmscomputing/device/capi/sound/index.html">uk.co.mmscomputing.device.capi.sound</a>:
+<br>Classes that turn the CAPI device audio streams into an A-Law, u-Law or PCM stream.
+</li>
+<li><a href="../../../../../../uk/co/mmscomputing/imageio/sff/index.html">uk.co.mmscomputing.imageio.sff</a>:
+<br>Classes that enable the java imageio system to read and write *.sff (structured fax format) files.
+</li>
+<li><a href="../../../../../../uk/co/mmscomputing/imageio/tiff/index.html">uk.co.mmscomputing.imageio.tiff</a>:
+<br>Classes that enable the java imageio system to read and write *.tif (Tagged Image File Format ) files.
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mmsc - Portable Document Format (PDF) java image reader/writer</title>
+<meta name="description" content="Classes that enable the java imageio system to write images as *.pdf files and read those files.">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+Classes that enable the java imageio system to write images as *.pdf files and read those files.
+</div>
+<div id="desc">
+<p>
+In order to read/write pdf files with the java imageio classes we need an
+ImageWriterSpi, ImageWriter, ImageReaderSpi and ImageReader.
+Additional to that we need to tell the java imageio system that we have a new ImageWriterSpi and ImageReaderSpi for it. 
+To do this you need to put the file <i>javax.imageio.spi.ImageReaderSpi, javax.imageio.spi.ImageWriterSpi</i> into the folder 
+<i>{$your java programs root directory}/META-INF/services/</i> or if those files already exist, 
+add the lines <i>uk.co.mmscomputing.imageio.pdf.PDFImageReaderSpi</i> and <i>uk.co.mmscomputing.imageio.pdf.PDFImageWriterSpi</i> accordingly.
+</p>
+<p class="remark">
+The ImageWriter will create for coloured/grey images jpeg compressed and for black/white T.6 MMR compressed object streams.
+<br>The ImageReader can read the output files from the ImageWriter, BUT it cannot and will probably never be able to 
+read images from pdf files created with other applications.
+</p>
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.imageio.pdf
+<ol>
+<li><a href="PDFArray.java">PDFArray.java</a></li>
+<li><a href="PDFBody.java">PDFBody.java</a></li>
+<li><a href="PDFCatalog.java">PDFCatalog.java</a></li>
+<li><a href="PDFConstants.java">PDFConstants.java</a></li>
+<li><a href="PDFCrossReferenceEntry.java">PDFCrossReferenceEntry.java</a></li>
+<li><a href="PDFCrossReferenceTable.java">PDFCrossReferenceTable.java</a></li>
+<li><a href="PDFDictionary.java">PDFDictionary.java</a></li>
+<li><a href="PDFDocument.java">PDFDocument.java</a></li>
+<li><a href="PDFFile.java">PDFFile.java</a></li>
+<li><a href="PDFFilter.java">PDFFilter.java</a></li>
+<li><a href="PDFImage.java">PDFImage.java</a></li>
+<li><a href="PDFImageReader.java">PDFImageReader.java</a></li>
+<li><a href="PDFImageReaderSpi.java">PDFImageReaderSpi.java</a></li>
+<li><a href="PDFImageWriteParam.java">PDFImageWriteParam.java</a></li>
+<li><a href="PDFImageWriter.java">PDFImageWriter.java</a></li>
+<li><a href="PDFImageWriterSpi.java">PDFImageWriterSpi.java</a></li>
+<li><a href="PDFIndirectObject.java">PDFIndirectObject.java</a></li>
+<li><a href="PDFIndirectObjects.java">PDFIndirectObjects.java</a></li>
+<li><a href="PDFIndirectReference.java">PDFIndirectReference.java</a></li>
+<li><a href="PDFInfo.java">PDFInfo.java</a></li>
+<li><a href="PDFObject.java">PDFObject.java</a></li>
+<li><a href="PDFPage.java">PDFPage.java</a></li>
+<li><a href="PDFScanner.java">PDFScanner.java</a></li>
+<li><a href="PDFStream.java">PDFStream.java</a></li>
+<li><a href="PDFXObject.java">PDFXObject.java</a></li>
+<li><a href="javax.imageio.spi.ImageReaderSpi">javax.imageio.spi.ImageReaderSpi</a></li>
+<li><a href="javax.imageio.spi.ImageWriterSpi">javax.imageio.spi.ImageWriterSpi</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/application/imageviewer/index.html">uk.co.mmscomputing.application.imageviewer</a>:
+<br>A simple Multi Page Image Viewer Applet. To view multipage *.sff, *.tiff and *.gif files. Twain and SANE test application.
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

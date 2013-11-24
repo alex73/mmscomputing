@@ -1,0 +1,52 @@
+No of controllers : 1
+Controller : 1
+Manufacturer Eicon Networks
+Version 2.0 - 0.0
+Serial No 488
+BChannels : 2
+
+Options : 0x11111001
+0 : Internal controller SUPPORTED
+1 : External equipment NOT SUPPORTED
+2 : Handset NOT SUPPORTED
+3 : DTMF SUPPORTED
+4 : Supplementary Services SUPPORTED
+5 : Channel allocation SUPPORTED
+6 : Parameter B channel operation SUPPORTED
+7 : Line interconnect SUPPORTED
+
+B1 protocol support : 0x1111011111
+0 : 64 kbits/s with HDLC framing SUPPORTED
+1 : 64 kbits/s bit-transparent SUPPORTED
+2 : V.110 asynchronous SUPPORTED
+3 : V.110 synchronous SUPPORTED
+4 : T.30 modem for Group 3 fax SUPPORTED
+5 : 64 kbits/s inverted with HDLC framing NOT SUPPORTED
+6 : 56 kbits/s bit-transparent SUPPORTED
+7 : modem with all negotiations SUPPORTED
+8 : modem asynchronous SUPPORTED
+9 : modem synchronous SUPPORTED
+
+B2 protocol support : 0x1101111011011
+0 : ISO 7776 (X.75 SLP) SUPPORTED
+1 : Transparent SUPPORTED
+2 : SDLC NOT SUPPORTED
+3 : LAPD in accordance with Q.921 for D-channel X.25 (SAPI 16) SUPPORTED
+4 : T.30 for Group 3 fax SUPPORTED
+5 : Point to point (PPP) NOT SUPPORTED
+6 : Transparent (ignoring framing errors of B1 protocol) SUPPORTED
+7 : Modem error correction and compression (V.42bis or MNP5) SUPPORTED
+8 : ISO 7776 (X.75 SLP) modified supporting V.42bis compression SUPPORTED
+9 : V.120 asynchronous mode SUPPORTED
+10 : V.120 asynchronous mode supporting V.42bis NOT SUPPORTED
+11 : V.120 bit-transparent mode SUPPORTED
+12 : LAPD in accordance with Q.921 including free SAPI selection SUPPORTED
+
+B3 protocol support : 0x10110111
+0 : Transparent SUPPORTED
+1 : T.90NL SUPPORTED
+2 : ISO 8208 (X.25 DTE-DTE) SUPPORTED
+3 : X.25 DCE NOT SUPPORTED
+4 : T.30 for Group 3 fax SUPPORTED
+5 : T.30 for Group 3 fax with extensions SUPPORTED
+7 : Modem SUPPORTED

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mms-computing : java A-Law, u-Law into PCM sound converter classes. Java Sound Player and Recorder.</title>
+<meta name="description" content="Java classes that convert A-Law or u-Law byte streams into PCM byte streams or *.wav files and vice versa. A simple sound player and recorder">
+<link rel=StyleSheet href="../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../index.html">home</a></li>
+<li><a href="../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+<li><a href="../../../../uk/co/mmscomputing/sound/provider/index.html">provider</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+Java classes that convert A-Law or u-Law byte streams into PCM byte streams or *.wav files and vice versa. A simple sound player and recorder
+</div>
+<div id="desc">
+<ol>
+<li><b>CompressInputStream :   </b>
+    <br>Converts a PCM byte stream into an A-Law or u-Law byte stream. [1]
+<li><b>DecompressInputStream : </b>
+    <br>Converts an A-Law or u-Law byte stream into a PCM byte stream. [1]
+<li><b>ConvertInputStream :    </b>
+    <br>Converts an A-Law into u-Law byte stream or vice versa. [1]
+<li><b>WaveOutputFile :    </b>
+    <br>Writes sound data into a <i>wav</i> file.
+<li><b>EavesdropInputStream :    </b>
+    <br>Acts as an FilterInputStream, but takes as well the audio input stream and sends it to the default audio output device (i.e. speaker).
+<li><b>SoundPlayer :    </b>
+    <br>A component that will play a given sound file and has simple control buttons like <i>start, pause, rewind</i>.
+</ol>
+
+<p><b>The PCM-Format is :</b>
+<br><nobr>PCM 8000.0 Hz, 16 bit, mono, SIGNED, little-endian</nobr>
+<br><nobr>static AudioFormat pcmformat = new AudioFormat(8000,16,1,true,false);</nobr>
+</p>
+
+<p class="quote">[1] Willi-Hans Steeb;  Mathematical Tools in Signal Processing with C++ and Java Simulations; International School for Scientific Computing
+</p>
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.sound
+<ol>
+<li><a href="CompressInputStream.java">CompressInputStream.java</a></li>
+<li><a href="ConvertInputStream.java">ConvertInputStream.java</a></li>
+<li><a href="DecompressInputStream.java">DecompressInputStream.java</a></li>
+<li><a href="EavesdropInputStream.java">EavesdropInputStream.java</a></li>
+<li><a href="SoundMixer.java">SoundMixer.java</a></li>
+<li><a href="SoundMixerEnumerator.java">SoundMixerEnumerator.java</a></li>
+<li><a href="SoundPlayer.java">SoundPlayer.java</a></li>
+<li><a href="SoundRecorder.java">SoundRecorder.java</a></li>
+<li><a href="WaveOutputFile.java">WaveOutputFile.java</a></li>
+</ol>
+</div>
+<div id="dirlist">
+sub-directories:
+<ol>
+<li><a href="../../../../uk/co/mmscomputing/sound/provider/index.html">uk.co.mmscomputing.sound.provider</a>:
+<br>Java package that offers a virtual mixer that provides multiple speaker and microphone lines.
+</li>
+</ol>
+</div>
+<div id="projects">
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

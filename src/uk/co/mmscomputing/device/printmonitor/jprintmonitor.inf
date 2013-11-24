@@ -1,0 +1,30 @@
+; jprintmonitor.inf
+;
+; Installation inf for mmsc java printer port monitor
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%MM%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+
+[PortMonitors]
+"MMSC Port Monitor" = jportmon
+
+[jportmon]
+CopyFiles = @jprintmonitor.dll, @uk.co.mmscomputing.device.printmonitor.jar
+PortMonitorDll = jprintmonitor.dll
+
+[SourceDisksFiles]
+uk.co.mmscomputing.device.printmonitor.jar=1,,
+jprintmonitor.dll=2,,
+
+[SourceDisksNames]
+1="jprintmonitor Installation Disk",,,
+2="jprintmonitor Installation Disk",,,\win32
+
+[Strings]
+MM="mmscomputing"
+
+

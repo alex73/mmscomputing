@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing : Answer Phone Application</title>
+<meta name="description" content="Answer Phone Application.">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+Answer Phone Application.
+</div>
+<div id="desc">
+<ol>
+<li>ISDN
+  <p>For this program to work you need an modem-card that supports CAPI (Common ISDN API).
+     All ISDN adapter cards for Windows and most for Linux do support CAPI.
+     The only PSTN adapter cards (I know of) that support CAPI are Eicon's Diva Server Analog cards.
+  </p>
+<li>Java
+  <p>You need to install a java software development kit version 1.5 [aka 5.0] or higher
+     (<a href="http://java.sun.com">java.sun.com</a>).
+  </p>
+<li>Linux
+  <ol>
+  <li>You need to set up the <a href="../../device/capi/lin32">linux jcapi package</a> first.
+    <p>Which means you need to put the library <i>libjcapi.so</i> into the library search path.
+       Additional to the usual places this application is searching as well in the 
+       <i>uk/co/mmscomputing/device/capi/lin32</i> directory.
+       The package includes a <i>libjcapi.so</i> file generated with gcc 3.3 in above mentioned directory.
+       If you use a SuSE 8.2 [9.1] distribution it should work out of the box. Other distributions might work as well.
+       If not try recompiling <i>libjcapi.so</i>.
+    </p>
+  <li>Start the application with :
+    <p>At the command line change the directory to the one where the package has been extracted and type
+    <br><i>java uk.co.mmscomputing.application.answerphone.MainApp</i>
+    </p>
+  </ol>
+<li>Windows XP
+  <ol>
+  <li>You need to set up the <a href="../../device/capi/win32">windows 32 bit jcapi package</a> first.
+    <p>Which means you need to put the library <i>jcapi.dll</i> into the library search path.
+       Additional to the usual places this application is searching as well in the 
+       <i>uk/co/mmscomputing/device/capi/win32</i> directory.
+       The package includes a <i>jcapi.dll</i> file generated with Borlands bcc 5.5 in above mentioned directory.
+       If you use a 32 bit Windows it should work out of the box.
+    </p>
+  <li>Start the application with :
+    <p>At the command line change the directory to the one where the package has been extracted and type
+    <br><i>java uk.co.mmscomputing.application.answerphone.MainApp</i>
+    </p>
+  </ol>
+<li>JAR file (Linux & Windows XP)
+  <p>If you just want to try out the program.</p>
+  <ol>
+  <li>You need to download 
+    <p><a href="uk.co.mmscomputing.application.answerphone.jar">uk.co.mmscomputing.application.answerphone.jar</a>
+      and start it with:
+      <br><i>java -jar uk.co.mmscomputing.application.answerphone.jar</i>.
+      <p class="remark">
+      Windows: Should start the application when you double click the jar file.
+      <br>Linux: You might need to recompile <i>libjcapi.so</i>.
+      </p>
+    </p>
+  </ol>
+<li>FAX
+  <p>For the fax part to work the isdn card needs to support</p>
+  <ol>
+  <li>B-Protocol 'T.30 for Group 3' (see tab <i>setup/controller</i>)
+  <li>DTMF detection (see tab <i>setup/controller</i>)
+  <p class="remark">
+  <br>To scan and display fax images you might need to add the option <i>-Xmx128m</i> when you call java.
+  <br> I.e. <i>java -Xmx128m uk.co.mmscomputing.application.answerphone.MainApp</i>
+  <br>
+  </p>
+  </ol>
+
+
+<li>User Guide
+  <ol>
+  <li>Phone Call Table
+  <p>The table that lists the received calls.
+  <br>Mouse Button Left Double Click: Plays recorded sound message.
+  <br>Mouse Button Left Double Click AND Shift Key Down: Enter remote number into phone book.
+  <br>Mouse Button Right Double Click: Delete recorded sound message (Confirmation dialog pops-up).
+  </p>
+  </li>
+  <li>Fax Call Table
+  <p>The table that lists the received facsimile.
+  <br>Mouse Button Left Double Click: Show fax in image viewer tab.
+  <br>Mouse Button Left Double Click AND Shift Key Down: Enter remote number into phone book.
+  <br>Mouse Button Right Double Click: Delete facsimile (Confirmation dialog pops-up).
+  </p>
+  </li>
+  <li>Phone Book
+  <p>The table that lists the known name-numbers pairs.
+  <br>Mouse Button Left Click: Select name-number pair for editing.
+  <br>Mouse Button Right Double Click: Deletes name-number pair (Confirmation dialog pops-up).
+  </p>
+  </li>
+  <li>Property Tabs
+  <p>The property key-value pairs are saved when you close the application or stop the applet 
+  in folder <i>mmsc</i> in the users home directory. (The Log Book tells you where that is.)
+  </p>
+  </li>
+  </ol>
+</ol>
+
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.application.answerphone
+<ol>
+<li><a href="MainApp.java">MainApp.java</a></li>
+<li><a href="PhoneFaxTab.java">PhoneFaxTab.java</a></li>
+<li><a href="uk.co.mmscomputing.application.answerphone.jar">uk.co.mmscomputing.application.answerphone.jar</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/application/phone/index.html">uk.co.mmscomputing.application.phone</a>:
+<br>Phone Application.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/index.html">uk.co.mmscomputing.device.capi</a>:
+<br>This open source software project connects the world of java with the Common-ISDN-API (CAPI). CAPI is an application programming interface standard used to access ISDN equipment.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/phone/index.html">uk.co.mmscomputing.device.phone</a>:
+<br>mm's computing: Phone System.
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

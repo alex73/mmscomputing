@@ -1,0 +1,3 @@
+Main-Class: uk/co/mmscomputing/application/install/MainApp
+
+

@@ -1,0 +1,85 @@
+*%
+*% mm's computing 2005-10-19
+*%
+*GPDSpecVersion: "1.0"
+*GPDFileVersion: "1.00"
+*GPDFileName: "MMSCFAX.GPD"
+*Include: "STDNAMES.GPD"
+*ModelName: "mmsc fax printer"
+*MasterUnits: PAIR(203, 196)
+*ResourceDLL: "MMSCFAX.dll"
+*PrinterType: PAGE
+*Feature: InputBin
+{
+    *rcNameID: =PAPER_SOURCE_DISPLAY
+}
+*Feature: Resolution
+{
+    *rcNameID: =RESOLUTION_DISPLAY
+    *DefaultOption: Option1
+    *Option: Option1
+    {
+        *Name: "203 x 196 " =DOTS_PER_INCH
+        *DPI: PAIR(203, 196)
+        *TextDPI: PAIR(203, 196)
+        *SpotDiameter: 100
+        *Command: CmdSendBlockData { *Cmd : "NumOfDataBytes="  %d{NumOfDataBytes} ";RasterDataWidthInBytes="  %d{RasterDataWidthInBytes} ";RasterDataHeightInPixels="  %d{RasterDataHeightInPixels} ";SendBlockData;" }
+        *Command: CmdEndBlockData {*Cmd:"EndBlockData;"}
+    }
+    *Option: Option2
+    {
+        *Name: "203 x 98 " =DOTS_PER_INCH
+        *DPI: PAIR(203, 98)
+        *TextDPI: PAIR(203, 98)
+        *SpotDiameter: 100
+        *Command: CmdSendBlockData { *Cmd : "NumOfDataBytes="  %d{NumOfDataBytes} ";RasterDataWidthInBytes="  %d{RasterDataWidthInBytes} ";RasterDataHeightInPixels="  %d{RasterDataHeightInPixels} ";SendBlockData;" }
+        *Command: CmdEndBlockData {*Cmd:"EndBlockData;"}
+    }
+}
+*Feature: PaperSize
+{
+    *rcNameID: =PAPER_SIZE_DISPLAY
+    *DefaultOption: "FAXPAPER"
+    *Option: "FAXPAPER"
+    {
+        *Name: "Fax Paper Size"
+        *PageDimensions: PAIR(1728, 2289)
+        *PrintableArea: PAIR(1728, 2289)
+        *PrintableOrigin: PAIR(0, 0)
+        *CursorOrigin: PAIR(0, 0)
+    }
+}
+*Command: CmdStartDoc
+{
+    *Order: DOC_SETUP.1
+    *Cmd: "StartDoc;"
+}
+*Command: CmdStartPage
+{
+    *Order: PAGE_SETUP.1
+    *Cmd: "PageNumber="  %d{PageNumber} ";PhysPaperWidth=" %d{PhysPaperWidth} ";PhysPaperLength=" %d{PhysPaperLength} ";GraphicsXRes="  %d{GraphicsXRes} ";GraphicsYRes="  %d{GraphicsYRes} ";StartPage;"
+}
+*Command: CmdEndJob
+{
+    *Order: JOB_FINISH.1
+    *Cmd: "EndJob;"
+}
+*Command: CmdEndPage
+{
+    *Order: PAGE_FINISH.1
+    *Cmd: "EndPage;"
+}
+*RasterSendAllData?:TRUE
+*CursorXAfterCR: AT_PRINTABLE_X_ORIGIN
+*XMoveThreshold: 0
+*YMoveThreshold: 0
+*XMoveUnit: 203
+*YMoveUnit: 196
+*Command: CmdCR { *Cmd : "CR;" }
+*Command: CmdLF { *Cmd : "LF;" }
+*Command: CmdFF { *Cmd : "FF;" }
+*EjectPageWithFF?: FALSE
+*OutputDataFormat: H_BYTE
+*OptimizeLeftBound?: FALSE
+*CursorXAfterSendBlockData: AT_GRXDATA_ORIGIN
+*CursorYAfterSendBlockData: AUTO_INCREMENT

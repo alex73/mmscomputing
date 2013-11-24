@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mms-computing : java CAPI ISDN byte stream to A-Law, u-Law and PCM sound converter classes</title>
+<meta name="description" content="Classes that turn the CAPI device audio streams into an A-Law, u-Law or PCM stream.">
+<link rel=StyleSheet href="../../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../../index.html">home</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+Classes that turn the CAPI device audio streams into an A-Law, u-Law or PCM stream.
+</div>
+<div id="desc">
+<p>
+ISDN byte streams are encoded as either u-Law (North America, Japan) or A-Law (most other countries) [2] 
+with the bit order 'swapped'.
+<br>Here in beautiful Lincolnshire (England, old world) the local telecoms use the A-Law coding.
+
+<br>What you need to do, to convert the raw network byte stream into something more useful is the following :
+<ol>
+<li>The bits in every byte need to be 'swapped' like this : 0x00 -> 0x00, 0x01 -> 0x80, 0x02->0x40, 0x03->0xc0 ... [1]; (LawInputStream.java, LawOutputStream.java)
+<br>Now the bytes are coded as an A-Law stream or u-Law stream.
+<li>Optionally the Law stream can be converted into PCM-streams (see uk.co.mmscomputing.sound).
+<li>This can now be packed into an audio file format (i.e.: MS-'wave', uk.co.mmscomputing.device.capi.CapiSystem, uk.co.mmscomputing.sound).
+</ol>
+</p>
+
+<p><b>LawInputStream : </b>Converts the incoming ISDN byte stream into A-Law or u-Law byte stream.</p>
+<p><b>LawOutputStream : </b>Converts an A-Law or u-Law byte stream into an outgoing ISDN byte stream.</p>
+<p><b>PCMInputStream : </b>Converts the incoming ISDN byte stream into a PCM byte stream.</p>
+<p><b>PCMOutputStream : </b>Converts a PCM byte stream into an outgoing ISDN byte stream.</p>
+
+<p><b>The PCM-Format here is :</b>
+<br><nobr>PCM 8000.0 Hz, 16 bit, mono, SIGNED, little-endian</nobr>
+<br><nobr>static AudioFormat pcmformat = new AudioFormat(8000,16,1,true,false);</nobr>
+</p>
+
+<p>
+<br>[1] <a href="http://www.quiss.org/caiviar/" target="_blank">caiviar project</a> [last accessed : 2003-07-09]
+<p class="quote">[2] Willi-Hans Steeb;  Mathematical Tools in Signal Processing with C++ and Java Simulations; International School for Scientific Computing
+</p>
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.device.capi.sound
+<ol>
+<li><a href="LawInputStream.java">LawInputStream.java</a></li>
+<li><a href="LawOutputStream.java">LawOutputStream.java</a></li>
+<li><a href="PCMInputStream.java">PCMInputStream.java</a></li>
+<li><a href="PCMOutputStream.java">PCMOutputStream.java</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../../uk/co/mmscomputing/sound/index.html">uk.co.mmscomputing.sound</a>:
+<br>Java classes that convert A-Law or u-Law byte streams into PCM byte streams or *.wav files and vice versa. A simple sound player and recorder
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

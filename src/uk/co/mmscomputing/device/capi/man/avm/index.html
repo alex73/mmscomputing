@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mms-computing - AVM Specific Classes (GetBChannelInfo)</title>
+<meta name="keywords" content="CAPI, GetBChannelInfo, AVM, isdn monitor">
+<meta name="description" content="AVM Specific Classes">
+<link rel=StyleSheet href="../../../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../../../index.html">home</a></li>
+<li><a href="../../../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+AVM Specific Classes
+</div>
+<div id="desc">
+<p>
+All the following information has been extracted from 
+<a href="ftp://ftp.avm.de/tools/k_isdn_watch.linux/" target="_blank">kisdnwatch</a> 
+sources [last accessed: 2006-05-06].
+<p class="remark">
+The information is manufacturer specific and can therefore change in the future.
+</p>
+
+
+<ul>
+
+<li>AVMGetBChannelInfoReq
+
+<pre>
+0  CAPI MSG HEADER
+12 DWORD:     0x214D5641                manufacturer ID "AVM!"
+16 DWORD:     0                         class    (kisdnwatch)
+20 DWORD:     4                         function (kisdnwatch)
+24 STRUCT:    63 bytes empty            ?        (kisdnwatch)
+</pre>
+
+<li>AVMGetBChannelInfoConf
+
+<pre>
+0  CAPI MSG HEADER
+12 DWORD:     0x214D5641                manufacturer ID "AVM!"
+16 DWORD:     0                         class    (kisdnwatch)
+20 DWORD:     4                         function (kisdnwatch)
+24 STRUCT:    Data[n]                   ?        (kisdnwatch)
+
+Data:
+
+byte index    | type |    meaning                  | comment
+----------------------------------------------------------------------------------------------------------
+0..1          | word | registered applications     | including this application (kisdnwatch)
+2             | bool | isdn line active            | cable unplugged = 0; cable plugged in = 1; (my guess)
+3             | bool | d channel active            | as soon as something goes on = 1 (my guess)
+4             | ?    | ?                           | seems to be zero all the time
+5 .. n        | bool | b channel [0] .. [n] active | channel down = 0; channel up = 1; (kisdnwatch)
+</pre>
+
+
+<li>AVMProfile
+
+<pre>
+Profile (Manufacturer Specific Part):
+
+byte index    | type |    meaning                  | comment
+----------------------------------------------------------------------------------------------------------
+44            | bool | more specific data to come ?
+45            |
+46            |
+47..48        | word | D-Protocol                  | DSS1,CT1,VN3 ... (kisdnwatch)
+49            | byte | Line Type                   | Point to Point, Point to multipoint,Fixed no D channel,
+                                                   | Fixed with D channel (kisdnwatch)
+</pre>
+
+</ul>
+
+</p></div>
+<div id="files">
+Package : uk.co.mmscomputing.device.capi.man.avm
+<ol>
+<li><a href="AVMConf.java">AVMConf.java</a></li>
+<li><a href="AVMConstants.java">AVMConstants.java</a></li>
+<li><a href="AVMDTraceInd.java">AVMDTraceInd.java</a></li>
+<li><a href="AVMDTraceReq.java">AVMDTraceReq.java</a></li>
+<li><a href="AVMGetBChannelInfoConf.java">AVMGetBChannelInfoConf.java</a></li>
+<li><a href="AVMGetBChannelInfoReq.java">AVMGetBChannelInfoReq.java</a></li>
+<li><a href="AVMInd.java">AVMInd.java</a></li>
+<li><a href="AVMProfile.java">AVMProfile.java</a></li>
+<li><a href="AVMReq.java">AVMReq.java</a></li>
+<li><a href="AVMResp.java">AVMResp.java</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../../../uk/co/mmscomputing/application/avmisdnmonitor/index.html">uk.co.mmscomputing.application.avmisdnmonitor</a>:
+<br>Java ISDN Monitor for AVM Cards (inspired by kisdnwatch).
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

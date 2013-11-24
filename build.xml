@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="mmscomputig" default="compile" basedir=".">
+
+	<target name="compile">
+		<mkdir dir="build/classes" />
+		<javac srcdir="src" includes="**" encoding="utf-8" destdir="build/classes">
+		</javac>
+		<copy todir="build/classes">
+			<fileset dir="src" excludes="**/*.java" />
+		</copy>
+		<jar jarfile="build/mmsc.jar" basedir="build/classes" />
+	</target>
+
+</project>

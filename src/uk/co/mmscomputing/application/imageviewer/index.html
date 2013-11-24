@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mms-computing : java multipage viewer applet with twain or sane scanner capabilities</title>
+<meta name="description" content="A simple Multi Page Image Viewer Applet. To view multipage *.sff, *.tiff and *.gif files. Twain and SANE test application.">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+A simple Multi Page Image Viewer Applet. To view multipage *.sff, *.tiff and *.gif files. Twain and SANE test application.
+</div>
+<div id="desc">
+<p>This application  was developed to open, show and save multi page *.sff image files 
+and to test the <i>uk.co.mmscomputing.imageio.sff</i> package.
+
+<br>Start with :
+<pre>java -Xmx128m uk.co.mmscomputing.application.imageviewer.MainApp</pre>
+When dealing with images you usually need to increase the memory settings for the jvm (java virtual machine).
+The default maximum heap size tends to be to small for image programs. 
+The -Xmx option above sets the heap size to 128 mega byte. 
+
+<p>If TWAIN is available the program will be able to scan images from TWAIN devices.
+<p>If SANE is available the program will be able to scan images from SANE devices.
+
+<p>To start the imageviewer application click here: 
+<blockquote><a href="uk.co.mmscomputing.application.imageviewer.jnlp">Multipage Image Viewer Application with Web Start</a></blockquote>
+</p>
+
+<p>To start the imageviewer applet click here: 
+<blockquote><a href="applet.html">Multipage Imageviewer Applet</a></blockquote>
+</p>
+
+<p class="remark">
+You need at least a 1.4 jre; 
+<br>Linux/Mozilla 1.6 (SuSE 9.1): Works.
+<br>Linux/Konqueror 3.2.1 (SuSE 9.1) Does only seem to work if security manager is switched off [2005-09-19].
+</p>
+
+<h2>If you want to serve this applet via a web server:</h2>
+<ol>
+<li>
+<b>Figure out your code base on the web server:</b>
+<br>I.e.: If you unpacked and compiled the <i>uk.co.mmscomputing</i> packages in <i>/home/user/public_html/java</i> 
+and Apache maps the url <i>http://host/~user/</i> to <i>/home/user/public_html/</i> 
+then the codebase is <i>http://host/~user/java/</i>.
+</li>
+<li>
+<b>Write your web page:</b>
+<br>Add either the following applet tag:
+<pre>
+&lt;applet
+code="uk.co.mmscomputing.application.imageviewer.MainApp.class"
+codebase="http://host/~user/java"
+width=100%
+height=100%
+&gt;
+&lt;/applet&gt;
+</pre>
+
+or this if you use a signed jar file
+
+<pre>
+&lt;applet
+code="uk.co.mmscomputing.application.imageviewer.MainApp.class"
+archive="uk.co.mmscomputing.application.imageviewer.jar"
+width=100%
+height=100%
+&gt;
+&lt;/applet&gt;
+</pre>
+
+</li>
+
+<li>
+<b>Make the client jvm trust you:</b>
+<p class="remark">Why: The least thing you want to do is to open image files on the local computer, 
+hence you need the proper access rights on the client computer.
+</p>
+<p>
+The simplest way of doing this is to tell your users to edit the jvm <i>java.policy</i> file.
+<br>I.e.: Assume default jdk 1.5.0 set-up on win xp client, the file can be found in 
+<i>c:\Program Files\Java\jre1.5.0\lib\security\</i>
+<br>Or: Linux SuSE 9.1 : <i>/usr/lib/SunJava2-1.4.2/jre/lib/security</i>
+<br>
+<br>Add the following to the <i>java.policy</i> file:
+<pre>
+grant codeBase "http://host/~user/java/*" {
+  permission java.security.AllPermission;
+};
+</pre>
+<p>
+<br>Another option is to create a jar file and sign it with a certificate:
+<br>I.e. use self signed openssl certificate cacert.pem and cakey.pem
+<ol>
+  <li>Create jar file: uk.co.mmscomputing.application.imageviewer.jar
+  <li>Create self signed openssl certificate.
+  <br><i>openssl req -new -x509 -key cakey.pem -out cacert.pem -days 1095</i>
+  <li>Export certificate and private key as PKCS12 keystore.
+  <br><i>openssl pkcs12 -export -in cacert.pem -inkey cakey.pem -out cacert.p12</i>
+  <li>Get alias name of keystore entry [probably 1]
+  <br><i>keytool -list -v -keystore cacert.p12 -storetype PKCS12 -storepass mycertpasswd</i>
+  <li> Sign jar file:
+  <br><i>jarsigner -keystore cacert.p12 -storetype PKCS12 -storepass mycertpasswd -sigfile mmsc uk.co.mmscomputing.application.imageviewer.jar myalias</i></p>
+</ol>
+<br>Or the java way:
+<ol>
+  <li>keytool -genkey -alias &lt;username&gt; -keypass &lt;password&gt; -storepass &lt;password&gt; -validity &lt;days&gt;
+  <li>keytool -export -alias &lt;username&gt; -file MyKeyFile.cer
+  <li>jarsigner -sigfile MyKeyFile.cer uk.co.mmscomputing.application.imageviewer.jar &lt;username&gt;
+</ol>
+</p>
+<br>
+</li>
+<li><b>For scanner access:</b>
+<p>The jtwain and jsane packages try to unzip the native libraries into the clients local tmp folder and 
+load them from there.
+<br>If that does not work <i>jtwain.dll</i> or <i>libjsane.so</i> need to be put into a native library directory.
+<br>I.e.: Assume again default jdk 1.5.0 set-up on win xp client, one directory can be found at 
+<i>c:\Program Files\Java\jre1.5.0\bin\</i>
+<br>Or: Linux SuSE 9.1 : <i>/usr/lib/SunJava2-1.4.2/jre/lib/i386</i>
+</p>
+</li>
+</ol>
+</p>
+
+
+
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.application.imageviewer
+<ol>
+<li><a href="CloseTab.png">CloseTab.png</a></li>
+<li><a href="ImagePanel.java">ImagePanel.java</a></li>
+<li><a href="ImageTab.java">ImageTab.java</a></li>
+<li><a href="MainApp.java">MainApp.java</a></li>
+<li><a href="ScannerTab.java">ScannerTab.java</a></li>
+<li><a href="TabCloseIcon.java">TabCloseIcon.java</a></li>
+<li><a href="applet.html">applet.html</a></li>
+<li><a href="uk.co.mmscomputing.application.imageviewer.jar">uk.co.mmscomputing.application.imageviewer.jar</a></li>
+<li><a href="uk.co.mmscomputing.application.imageviewer.jnlp">uk.co.mmscomputing.application.imageviewer.jnlp</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/index.html">uk.co.mmscomputing.device.sane</a>:
+<br>This open source software project connects the world of java with SANE.SANE is an application programming interface standard used to access scanners &amp; digital cameras ... .This project consists of a SANE frontend written in java.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/scanner/index.html">uk.co.mmscomputing.device.scanner</a>:
+<br>Package scanner provides abstract parent classes to the classes in the <i>twain</i> and <i>sane</i> packages.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/index.html">uk.co.mmscomputing.device.twain</a>:
+<br>This open source software project connects the world of java with TWAIN.TWAIN is an application programming interface standard used to access scanners &amp; digital cameras ... .
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/imageio/bmp/index.html">uk.co.mmscomputing.imageio.bmp</a>:
+<br>Classes that enable the java imageio system to read and write *.bmp files.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/imageio/gif/index.html">uk.co.mmscomputing.imageio.gif</a>:
+<br>Classes that enable the java imageio system to read and write *.gif files.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/imageio/pdf/index.html">uk.co.mmscomputing.imageio.pdf</a>:
+<br>Classes that enable the java imageio system to write images as *.pdf files and read those files.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/imageio/sff/index.html">uk.co.mmscomputing.imageio.sff</a>:
+<br>Classes that enable the java imageio system to read and write *.sff (structured fax format) files.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/imageio/tiff/index.html">uk.co.mmscomputing.imageio.tiff</a>:
+<br>Classes that enable the java imageio system to read and write *.tif (Tagged Image File Format ) files.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/util/index.html">uk.co.mmscomputing.util</a>:
+<br>A few useful utility classes
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

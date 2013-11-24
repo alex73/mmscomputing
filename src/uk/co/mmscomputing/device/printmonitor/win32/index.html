@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing - jprintmonitor.dll: 32 bit windows c++ library for the windows printer port monitor</title>
+<meta name="keywords" content="windows port monitor printer driver java">
+<meta name="description" content="jprintmonitor.dll : The c++ part of the java printer port monitor.">
+<link rel=StyleSheet href="../../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../../index.html">home</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+jprintmonitor.dll : The c++ part of the java printer port monitor.
+</div>
+<div id="desc">
+<p>
+<ol>
+<li><b>What is a Windows Port Monitor.</b>
+<br>A piece of code that receives data from a printer driver and sends it to an output port.
+Usually this port is a hardware port like a com, lpt, irda or ... whatever port. 
+As it is in the moment this code here only transforms the data stream into a raw byte stream file or a tif file.
+<li><b>What happens during installation of the port monitor.</b>
+<br>The windows installation consists of:
+<br>
+  <ol>
+  <li>copying the jprintmonitor.dll and the uk.co.mmscomputing.device.printmonitor.jar file into the windows\systems32 folder.
+  <li>creating "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Monitors\MMSC Port Monitor"
+  <li>creating "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Monitors\Local Directory Port\Driver" = "jprintmonitor.dll"
+  <li>restart print spooler.
+  <li>creating an oem?.inf file in windows\inf folder, where ? is some number.
+  </ol>
+<br>You can do this manually as well. Just follow steps 1..4. No need for the oem?.inf file.
+<br>To restart the spooler. Open a 'command prompt' and type: 
+<br><i>net stop spooler</i> RETURN
+<br><i>net start spooler</i> RETURN
+<li><b>How to uninstall the port monitor.</b>
+<br>I know only the manual way:
+  <ol>
+  <li>Stop spooler: <i>net stop spooler</i> RETURN
+  <li>Delete registry key "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Monitors\MMSC Port Monitor"
+  <li>Delete above mentioned files.
+  <li>Start spooler: <i>net start spooler</i> RETURN
+  </ol>
+<li><b>How to update the port monitor.</b>
+  <ol>
+  <li>Stop spooler: <i>net stop spooler</i> RETURN
+  <li>Copy new jprintmonitor.dll and the uk.co.mmscomputing.device.printmonitor.jar into the windows\systems32 folder.
+  <li>Start spooler: <i>net start spooler</i> RETURN
+  </ol>
+<li><b>How does it work.</b>
+  <ol>
+  <li>When the spooler starts it loads all the monitor libraries listed in the 
+  "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Monitors" key. 
+  In our case: The spooler loads jprintmonitor.dll and calls DllMain. Nothing happens here.
+  <li>When you try to print or access the <i>Printers and Faxes</i> folder the spooler calls the
+  jprintmonitors.dll's <i>InitializePrintMonitor</i> function. Here we create a java virtual machine 
+  with the class path set to <i>uk.co.mmscomputing.device.printmonitor.jar</i>
+  and initialise a MONITOREX struct. This struct tells the spooler what functions to call. 
+  All those functions can be found in monitor.cpp. These functions only call their java counterparts.
+  The functions dealing with enumerating,adding,configuring,deleting and opening ports call static methods in jprintmonitor.java.
+  The other functions dealing with sending the actual data, call functions in Port.java.
+  <br>The parameter <i>HANDLE port</i> in these functions is a pointer to a java Port object, 
+  created in the Monitor_OpenPort function.
+  <br>One other bit we do: In Monitor_EndDocPort we tell the spooler and/or printer that we have finished the job.
+  <p class="remark">
+  The function <i>Monitor_EnumPorts</i> is probably the most peculiar one. 
+  You have to follow certain rules here laid out by Microsoft.
+  You might want to google for an explanation what to do here :) 
+  Just one hint: It seems that you must put the strings, as shown in the ddk examples, at the end of the buffer.
+  </p>
+  <p class="remark">
+  The cpp-part can be compiled like this:
+  <br><i>bcc32 -w-par -tWD -I"c:\borland\bcc55\include" -L"c:\Borland\Bcc55\lib" -e"J:\uk\co\mmscomputing\device\printmonitor\win32\jprintmonitor.dll" "J:\uk\co\mmscomputing\device\printmonitor\win32\*.cpp"</i>
+  <br>What you need to get is a copy of the <i>winsplp.h</i> header file which is part of the DDK and which is of course copyrighted by Microsoft.
+  <br>With minor changes this code can be compiled as well with <i>Microsofts Visual Studio .NET</i> and the DDK compiler.
+  The DDK compiler produces the smallest file.
+  </p>
+  <li>When the jvm is created it calls the static part of jprintmonitor.java. 
+  This code creates the <i>C:\WINDOWS\system32\uk.co.mmscomputing</i> folder and
+  redirects the System.out stream to log.txt and System.err to err.txt.
+  It tries to load as well its configuration from <i>uk.co.mmscomputing.device.printmonitor.properties.txt</i>
+  <li>The <i>jprintmonitor.openPort</i> method is called once the spooler connects a printer driver to a port.
+  <br>The <i>Port.close</i> method is called when the spooler is stopped 
+  or the printer driver is connected to another port.
+  <li><i>Port.start</i> is called before the spooler starts sending data with calls to <i>Port.write</i>. 
+  After the spooler has send all the data it calls <i>Port.end</i>.
+  <li>All the other flow control is done via the data the printer driver sends and is handled in <i>PMOutputStream</i>
+  and it's sub classes.
+  <li>The <i>mmsc fax printer</i> driver sends either commands like <i>cmd[=value];</i> or data. 
+  Data is send line by line. Before it sends data we receive a <i>SendBlockData;</i> command and
+  afterwards we get an <i>EndBlockData;</i> command. Before the <i>SendBlockData;</i> command the 
+  driver will send an <i>NumOfDataBytes</i> which tells us how much bytes it is going to send.
+  <br>Have a look at the mmscfax.gpd file and PMOutputStream.
+  <br>The important point here is that due to the fact that we set 
+  <i>*RasterSendAllData?:TRUE</i>,<i>*OutputDataFormat: H_BYTE</i> and <i>*OptimizeLeftBound?: FALSE</i>
+  (a few default settings play an important part here as well) 
+  we get essentially the whole bitmap line by line as black/white bits.
+  <p class="remark">
+  A port can be connected to any printer driver if you configure it with a <i>RAW</i> output stream.
+  What you get is the data the printer driver sends.
+  <br>If you connect a printer driver other then <i>mmsc fax printer</i> to a tif outputstream you will probably crash the spooler!
+  </p>
+  <p class="remark">
+  if jvm 1.6 need to find msvcr71.dll ourselves, otherwise jvm.dll will not load!
+  <br><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6509291">http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6509291</a>
+  </p>
+  </ol>
+</ol>
+</p></div>
+<div id="files">
+Package : uk.co.mmscomputing.device.printmonitor.win32
+<ol>
+<li><a href="jnu.cpp">jnu.cpp</a></li>
+<li><a href="jnu.h">jnu.h</a></li>
+<li><a href="jprintmonitor.cpp">jprintmonitor.cpp</a></li>
+<li><a href="jprintmonitor.dll">jprintmonitor.dll</a></li>
+<li><a href="mmscfax.dll">mmscfax.dll</a></li>
+<li><a href="mmscfax.gpd">mmscfax.gpd</a></li>
+<li><a href="monitor.cpp">monitor.cpp</a></li>
+<li><a href="monitor.h">monitor.h</a></li>
+<li><a href="util.cpp">util.cpp</a></li>
+<li><a href="util.h">util.h</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

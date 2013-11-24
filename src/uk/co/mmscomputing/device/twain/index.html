@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing : java twain wrapper (windows)</title>
+<meta name="keywords" content="java, twain, jtwain">
+<meta name="description" content="This open source software project connects the world of java with TWAIN.TWAIN is an application programming interface standard used to access scanners &amp; digital cameras ... .">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/applet/index.html">applet</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/memapplet/index.html">memapplet</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/pdfapplet/index.html">pdfapplet</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/tiffapplet/index.html">tiffapplet</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/win32/index.html">win32</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/win64/index.html">win64</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+This open source software project connects the world of java with TWAIN.TWAIN is an application programming interface standard used to access scanners &amp; digital cameras ... .
+</div>
+<div id="desc">
+<p>This package  was developed to scan an image in order to turn it into an *.sff file
+and then fax it.
+</p>
+<h2>How does it work ? What happens ?</h2>
+<p>
+<ol>
+<li>On loading: jtwain.java loads it's C++ counter part, the library <i>jtwain.dll</i>.
+<li>jtwain.dll will load "TWAINDSM.DLL" (Twain 2.0 / 64 bit) or "TWAIN_32.DLL" (Twain < 2.0) and get a function pointer to the DSM (Data Source Manager) entry point (twain state 2).
+<li>If loading was successful jtwain.java creates a new thread that calls nstart in jtwain.cpp.
+<li>Due to the fact that twain is signalling events through the OS-dependent event queues, 
+we need to set up an application window including it's wndProc callback function.
+<li>After that <i>ninitLib</i> will open the DSM (twain state 3). Now the DSM is ready to handle device specific requests.
+<li>The native thread is then entering the event loop and calling jtwain.cbhandleGetMessage whenever it receives an event.
+<li>The twain entry function must be called from within the native thread. In order to do that a command 
+can be initiated from arbitrary java threads by calling ntrigger. This will cause the native thread to 
+call jtwain.cbexecute.
+<br>Two commands can be triggered:
+<ol>
+<li><b>Select:</b> 
+The DSM will pop up a select dialog and the user can select a data source. 
+
+<li><b>Acquire:</b> 
+The data source will pop up a user dialog that allows the user to set various settings and then either scan or cancel the request.
+Once an image has been acquired by the twain data source as a DIB (Device Independent Bitmap)
+a <i>BufferedImage</i> object will be created and the DIB data copied to this BufferedImage.
+The jtwain object informs the ScannerListeners of the new image.
+</ol>
+</ol>
+</p>
+<p class="remark">
+To see how to use this package have a look at the imageviewer application, especially class ScannerTab.
+</p>
+
+<p>You can find a simple application here:<a href="TwainExample.java">TwainExample.java</a>.
+<p>And <a href="uk.co.mmscomputing.device.twain.jar">uk.co.mmscomputing.device.twain.jar</a> here which bundles all the necessary class files.
+In this scenario the jar file and the TwainExample.java file are in the same folder.
+</p>
+<ul>
+<li>Compile:<pre>javac -classpath .;uk.co.mmscomputing.device.twain.jar TwainExample.java</pre></li>
+<li>Run:<pre>java -classpath .;uk.co.mmscomputing.device.twain.jar TwainExample</pre></li>
+</ul>
+</p>
+
+<p class="quote">
+<br>[1] TWAIN : <a href="http://www.twain.org/" target="_blank">www.twain.org</a> [last accessed : 2009-02-20]
+<br>[2] Sheng Liang (1999), The Java Native Interface, SUN, Palo Alto
+</p>
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.device.twain
+<ol>
+<li><a href="TwainArray.java">TwainArray.java</a></li>
+<li><a href="TwainBufferedImage.java">TwainBufferedImage.java</a></li>
+<li><a href="TwainCapability.java">TwainCapability.java</a></li>
+<li><a href="TwainConstants.java">TwainConstants.java</a></li>
+<li><a href="TwainContainer.java">TwainContainer.java</a></li>
+<li><a href="TwainDefaultNativeLoadStrategy.java">TwainDefaultNativeLoadStrategy.java</a></li>
+<li><a href="TwainDefaultTransferFactory.java">TwainDefaultTransferFactory.java</a></li>
+<li><a href="TwainEnumeration.java">TwainEnumeration.java</a></li>
+<li><a href="TwainExample.java">TwainExample.java</a></li>
+<li><a href="TwainException.java">TwainException.java</a></li>
+<li><a href="TwainExtImageInfo.java">TwainExtImageInfo.java</a></li>
+<li><a href="TwainFailureException.java">TwainFailureException.java</a></li>
+<li><a href="TwainINativeLoadStrategy.java">TwainINativeLoadStrategy.java</a></li>
+<li><a href="TwainIOException.java">TwainIOException.java</a></li>
+<li><a href="TwainIOMetadata.java">TwainIOMetadata.java</a></li>
+<li><a href="TwainITransfer.java">TwainITransfer.java</a></li>
+<li><a href="TwainITransferFactory.java">TwainITransferFactory.java</a></li>
+<li><a href="TwainIdentity.java">TwainIdentity.java</a></li>
+<li><a href="TwainImageInfo.java">TwainImageInfo.java</a></li>
+<li><a href="TwainImageLayout.java">TwainImageLayout.java</a></li>
+<li><a href="TwainNativeLoadStrategySingleton.java">TwainNativeLoadStrategySingleton.java</a></li>
+<li><a href="TwainOneValue.java">TwainOneValue.java</a></li>
+<li><a href="TwainPanel.java">TwainPanel.java</a></li>
+<li><a href="TwainRange.java">TwainRange.java</a></li>
+<li><a href="TwainResultException.java">TwainResultException.java</a></li>
+<li><a href="TwainScanner.java">TwainScanner.java</a></li>
+<li><a href="TwainSource.java">TwainSource.java</a></li>
+<li><a href="TwainSourceManager.java">TwainSourceManager.java</a></li>
+<li><a href="TwainTransfer.java">TwainTransfer.java</a></li>
+<li><a href="TwainUserCancelException.java">TwainUserCancelException.java</a></li>
+<li><a href="jtwain.java">jtwain.java</a></li>
+<li><a href="uk.co.mmscomputing.device.twain.jar">uk.co.mmscomputing.device.twain.jar</a></li>
+<li><a href="uk_co_mmscomputing_device_twain_jtwain.h">uk_co_mmscomputing_device_twain_jtwain.h</a></li>
+</ol>
+</div>
+<div id="dirlist">
+sub-directories:
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/applet/index.html">uk.co.mmscomputing.device.twain.applet</a>:
+<br>A very simple java scan applet for jtwain.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/memapplet/index.html">uk.co.mmscomputing.device.twain.memapplet</a>:
+<br>A very simple java scan applet for jtwain. Saves images as pdf file.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/pdfapplet/index.html">uk.co.mmscomputing.device.twain.pdfapplet</a>:
+<br>A very simple java scan applet for jtwain. Saves images as pdf file.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/tiffapplet/index.html">uk.co.mmscomputing.device.twain.tiffapplet</a>:
+<br>A very simple java scan applet for jtwain. Saves images as tiff file.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/win32/index.html">uk.co.mmscomputing.device.twain.win32</a>:
+<br>jtwain.dll : The jtwain c++ library for windows (32-bit version).
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/twain/win64/index.html">uk.co.mmscomputing.device.twain.win64</a>:
+<br>jtwain.dll : The jtwain c++ library for windows (64-bit version).
+</li>
+</ol>
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/application/imageviewer/index.html">uk.co.mmscomputing.application.imageviewer</a>:
+<br>A simple Multi Page Image Viewer Applet. To view multipage *.sff, *.tiff and *.gif files. Twain and SANE test application.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/scanner/index.html">uk.co.mmscomputing.device.scanner</a>:
+<br>Package scanner provides abstract parent classes to the classes in the <i>twain</i> and <i>sane</i> packages.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/imageio/bmp/index.html">uk.co.mmscomputing.imageio.bmp</a>:
+<br>Classes that enable the java imageio system to read and write *.bmp files.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/util/index.html">uk.co.mmscomputing.util</a>:
+<br>A few useful utility classes
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

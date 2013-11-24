@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing - jcapi.dll: 32 bit windows c++ library for jcapi wrapper</title>
+<meta name="description" content="jcapi.dll : The jcapi c++ library for windows (32-bit version).">
+<link rel=StyleSheet href="../../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../../index.html">home</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+jcapi.dll : The jcapi c++ library for windows (32-bit version).
+</div>
+<div id="desc">
+<p>Windows jcapi.dll:
+	  <ol>
+	  <li>you need (i.e. Windows XP):
+	  <br> - c:\windows\system32\capi2032.dll
+	  <br> - java sdk i.e. Sun's 1.4.2 which you will find by default in c:\j2sdk1.4.2
+	  <br> - c:\j2sdk1.4.2\include\jni.h   <em class="remark">(you need to put these in the compilers search path)</em>
+	  <br> - c:\j2sdk1.4.2\include\win32\jni_md.h
+	  <br> - uk_co_mmscomputing_device_capi_jcapi.h
+          <li>open console and cd to jcapi.cpp directory
+	  <li>compile jcapi.cpp and therefore generate the library jcapi.dll like this (Borland C++ 5.5):
+	  <br>either <i>bcc32 -w-par -tWD jcapi.cpp</i>
+          <br>or <i>c:\borland\bcc55\bin\bcc32 -w-par -tWD -I"c:\borland\bcc55\include" -L"c:\borland\bcc55\lib" jcapi.cpp</i>
+          <br>If you know and trust me :) you can download <a href="jcapi.dll">jcapi.dll</a> here.
+
+	  <li>put jcapi.dll into library path of java program (4 possibilities):
+      <ol>
+      <li>use <i>-Djava.library.path=...</i> option, when you start the program. 
+      <!--<em class="remark">(See <a href="../../../application/answerphone/index.html">uk/co/mmscomputing/application/answerphone</a>.)</em>-->
+      <li>copy jcapi.dll to the java virtual machine's library folder <i>c:\j2sdk1.4.2\jre\bin</i> 
+      <em class="remark">(Available for all programs started with this jvm [java virtual machine])</em>
+      <li>or copy jcapi.dll to the operating system's library folder <i>c:\windows\system32</i>. 
+      <em class="remark">(Available for all java programs and jvms;
+      Just remember on 64 bit systems: 32 bit libraries go into SysWOW64 and 64 bit libraries into System32)</em>
+      <li>or use <i>uk.co.mmscomputing.util.JarLib.load(...)</i>
+      </ol>
+    </ol>
+</p>
+
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.device.capi.win32
+<ol>
+<li><a href="../uk_co_mmscomputing_device_capi_jcapi.h">../uk_co_mmscomputing_device_capi_jcapi.h</a></li>
+<li><a href="jcapi.cpp">jcapi.cpp</a></li>
+<li><a href="jcapi.dll">jcapi.dll</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

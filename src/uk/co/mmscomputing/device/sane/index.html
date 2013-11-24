@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing : java sane wrapper (linux)</title>
+<meta name="keywords" content="java, SANE, sane, jsane, scanner">
+<meta name="description" content="This open source software project connects the world of java with SANE.SANE is an application programming interface standard used to access scanners &amp; digital cameras ... .This project consists of a SANE frontend written in java.">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/applet/index.html">applet</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/gui/index.html">gui</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/lin32/index.html">lin32</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/option/index.html">option</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+This open source software project connects the world of java with SANE.SANE is an application programming interface standard used to access scanners &amp; digital cameras ... .This project consists of a SANE frontend written in java.
+</div>
+<div id="desc">
+<h2>jsane</h2>
+<p>This is the java wrapper to the SANE functions. I tried to keep the API as far as possible
+the way the SANE team designed it. But due to the way java works some things had to be changed.
+<ol>
+<li>An unexpected status code in jsane.c will throw a SaneIOException.
+<li>The read operation is designed to act like a java.io.InputStream read.
+</ol>
+<h2>SaneScanner, SaneDevice</h2>
+<p>These classes add the GUI bits: a select dialog and an acquire dialog. 
+They turn the image data into a BufferedImage object, if they can handle the data.
+Then they signal this event to the ScannerListener objects.
+Effectivly this is constituting a SANE frontend.
+</p>
+<p class="remark">
+I haven't implemented some of the GUI-bits for some Option Descriptors. 
+But I have tested the Frontend with the SANE <i>test</i> scanner and everything seems to work.
+In any case you should get all the data SANE supplies for this descriptor in a description panel.
+</p>
+
+<h2>SaneExample</h2>
+<p>You can find a simple application here:<a href="SaneExample.java">SaneExample.java</a>.
+<p>And <a href="uk.co.mmscomputing.device.sane.jar">uk.co.mmscomputing.device.sane.jar</a> here, which bundles all the necessary class files.
+In this scenario the jar file and the SaneExample.java file are in the same folder.
+</p>
+<ul>
+<li>Compile:<pre>javac -classpath .:uk.co.mmscomputing.device.sane.jar SaneExample.java</pre></li>
+<li>Run:<pre>java -classpath .:uk.co.mmscomputing.device.sane.jar SaneExample</pre></li>
+</ul>
+</p>
+
+<p class="quote">
+<br>[1] SANE : <a href="http://www.sane-project.org/" target="_blank">www.sane-project.org</a> [last accessed : 2003-11-18]
+<br>[2] Sheng Liang (1999), The Java Native Interface, SUN, Palo Alto
+</p>
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.device.sane
+<ol>
+<li><a href="OptionDescriptor.java">OptionDescriptor.java</a></li>
+<li><a href="Parameters.java">Parameters.java</a></li>
+<li><a href="SaneConstants.java">SaneConstants.java</a></li>
+<li><a href="SaneDevice.java">SaneDevice.java</a></li>
+<li><a href="SaneDeviceManager.java">SaneDeviceManager.java</a></li>
+<li><a href="SaneExample.java">SaneExample.java</a></li>
+<li><a href="SaneIOException.java">SaneIOException.java</a></li>
+<li><a href="SaneIOMetadata.java">SaneIOMetadata.java</a></li>
+<li><a href="SaneNoDocumentsException.java">SaneNoDocumentsException.java</a></li>
+<li><a href="SaneScanner.java">SaneScanner.java</a></li>
+<li><a href="jsane.java">jsane.java</a></li>
+<li><a href="jsane.properties">jsane.properties</a></li>
+<li><a href="jsane_de.properties">jsane_de.properties</a></li>
+<li><a href="uk.co.mmscomputing.device.sane.jar">uk.co.mmscomputing.device.sane.jar</a></li>
+<li><a href="uk_co_mmscomputing_device_sane_jsane.h">uk_co_mmscomputing_device_sane_jsane.h</a></li>
+</ol>
+</div>
+<div id="dirlist">
+sub-directories:
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/applet/index.html">uk.co.mmscomputing.device.sane.applet</a>:
+<br>A very simple java scan applet for jsane.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/gui/index.html">uk.co.mmscomputing.device.sane.gui</a>:
+<br>The GUI bits for the SANE frontend.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/lin32/index.html">uk.co.mmscomputing.device.sane.lin32</a>:
+<br>libjsane.so : The jsane cpp library for linux.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/sane/option/index.html">uk.co.mmscomputing.device.sane.option</a>:
+<br>Option Descriptor classes for the jsane project.
+</li>
+</ol>
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/application/imageviewer/index.html">uk.co.mmscomputing.application.imageviewer</a>:
+<br>A simple Multi Page Image Viewer Applet. To view multipage *.sff, *.tiff and *.gif files. Twain and SANE test application.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/scanner/index.html">uk.co.mmscomputing.device.scanner</a>:
+<br>Package scanner provides abstract parent classes to the classes in the <i>twain</i> and <i>sane</i> packages.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/util/index.html">uk.co.mmscomputing.util</a>:
+<br>A few useful utility classes
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

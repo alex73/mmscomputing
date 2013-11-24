@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing - jprintmonitor: a windows print port monitor written in java</title>
+<meta name="description" content="Open Source Project - jprintmonitor : A windows print port monitor written (almost only) in java.When used with an adequate printer driver like the <i>mmsc fax printer</i>,allows users to generate sff and tif fax files via the Windows printing system">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/printmonitor/win32/index.html">win32</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+Open Source Project - jprintmonitor : A windows print port monitor written (almost only) in java.When used with an adequate printer driver like the <i>mmsc fax printer</i>,allows users to generate sff and tif fax files via the Windows printing system
+</div>
+<div id="desc">
+<b>Motivation for writing this package</b>
+<p>The idea is to enable a user to <i>print</i> out a fax file sff, tiff
+that can be send off by a fax server using the fax, capi packages on this website.
+</p>
+
+The following installation instructions are for Windows XP.
+<br><span class="remark">MMSCInstallationFolder is the folder where you unzipped the mmsc.jar file.
+</span>
+
+<ol>
+<li>Install port monitor
+  <ol>
+  <li>Open the <b>Printers and Faxes</b> folder in start menu. 
+  <li>On the Printers and Faxes folder's <b>File menu</b>, select <b>Server Properties</b>. 
+  <li>On the Print Server Properties dialog, click the <b>Ports tab</b>, and then click the <b>Add Port...</b> button. 
+  <li>On the Printer Ports dialog, click the <b>New Port Type...</b> button. 
+  <li>Select <b>MMSCInstallationFolder\uk\co\mmscomputing\device\printmonitor\jprintmonitor.inf</b> file and click OK.
+  <br>A <i>MMSC Port Monitor</i> entry should appear now.
+  </ol>
+<li>Add a port
+  <ol>
+  <li>Select <i>MMSC Port Monitor</i> entry.
+  <li>Click <b>New Port...</b> button.
+  <li>Configure port.
+    <p>Set a unique name (i.e. <i>faxport</i>), some description and most importantly a destination folder.</p>
+  <li>Configure compression mode.
+  <li>Click <b>Close</b> button.
+    <p>A new port called <i>faxport</i> or whatever name you gave it should be visible in the port list.</p>
+  <li>Close dialog.
+  </ol>
+<li>Install printer driver
+  <ol>
+  <li>Open the <b>Printers and Faxes</b> folder in start menu. 
+  <li>Click on <b>Add a printer</b> link.
+  <li>Click <b>next</b> in <i>Add Printer Wizard</i>
+  <li>Select <b>Local printer ...</b>, click <b>next</b>
+  <li>Select <b>faxport</b> in <i>Use the following port</i> list, click <b>next</b>
+  <li>Click <b>Have disk</b>
+  <li>Select <b>MMSCInstallationFolder\uk\co\mmscomputing\device\printmonitor\mmscfax.inf</b> and click OK.  
+  <li>Click <b>next</b>
+  <li>Select <b>Replace existing driver</b>, click <b>next</b>
+  <li>Follow the wizard's instructions.
+  <br>If you have used the default values you should have a <i>mmsc fax printer</i> attached to 
+  <i>faxport</i> in your <i>Printers and Faxes</i> folder.
+  <li>If you have opted to print a test page the file "Test Page.tif" can now be found in faxport's destination folder.
+  </ol>
+<li>Configure port
+  <ol>
+  <li>Open the <b>Printers and Faxes</b> folder in start menu. 
+  <li>Right click on any printer icon, click on <b>Properties</b>
+  <li>Click on <b>Ports</b> tab, select port entry and click on <b>Configure Port...</b> button.
+  <li>Configure port. Set a new destination folder and compression mode.
+  <li>Close dialogs.
+  </ol>
+<li>Add another port
+  <ol>
+  <li>Open the <b>Printers and Faxes</b> folder in start menu. 
+  <li>Right click on any printer icon, click on <b>Properties</b>
+  <li>Click on <b>Ports</b> tab and <b>Add Port...</b> button.
+  <li>Select <i>MMSC Port Monitor</i> entry.
+  <li>Click <b>New Port...</b> button.
+  <li>Configure port. Set a unique name (i.e. <i>faxport1</i>), some description and most importantly a destination folder.
+  <li>Configure compression mode.
+  <li>Click <b>Close</b> button.
+  <br>A new port called <i>faxport1</i> or whatever name you gave it should be visible in the port list.
+  <li>Close dialog.
+  </ol>
+<li>Delete port
+  <ol>
+  <li>Open the <b>Printers and Faxes</b> folder in start menu. 
+  <li>Right click on any printer icon, click on <b>Properties</b>
+  <li>Click on <b>Ports</b> tab, select port entry and click on <b>Delete Port...</b> button.
+  <li>Close dialogs.
+  </ol>
+</ol>
+
+<!-- c:\windows\inf\oem?.inf --></div>
+<div id="files">
+Package : uk.co.mmscomputing.device.printmonitor
+<ol>
+<li><a href="PMConfigurationPanel.java">PMConfigurationPanel.java</a></li>
+<li><a href="PMOutputStream.java">PMOutputStream.java</a></li>
+<li><a href="PMOutputStreamFactory.java">PMOutputStreamFactory.java</a></li>
+<li><a href="PMRawOutputStream.java">PMRawOutputStream.java</a></li>
+<li><a href="PMSFFOutputStream.java">PMSFFOutputStream.java</a></li>
+<li><a href="PMT4MHOutputStream.java">PMT4MHOutputStream.java</a></li>
+<li><a href="PMT4MROutputStream.java">PMT4MROutputStream.java</a></li>
+<li><a href="PMT6MMROutputStream.java">PMT6MMROutputStream.java</a></li>
+<li><a href="Port.java">Port.java</a></li>
+<li><a href="PortList.java">PortList.java</a></li>
+<li><a href="Test_Page.tif">Test_Page.tif</a></li>
+<li><a href="jprintmonitor.inf">jprintmonitor.inf</a></li>
+<li><a href="jprintmonitor.java">jprintmonitor.java</a></li>
+<li><a href="mmscfax.inf">mmscfax.inf</a></li>
+<li><a href="uk.co.mmscomputing.device.printmonitor.jar">uk.co.mmscomputing.device.printmonitor.jar</a></li>
+</ol>
+</div>
+<div id="dirlist">
+sub-directories:
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/device/printmonitor/win32/index.html">uk.co.mmscomputing.device.printmonitor.win32</a>:
+<br>jprintmonitor.dll : The c++ part of the java printer port monitor.
+</li>
+</ol>
+</div>
+<div id="projects">
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

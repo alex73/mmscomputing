@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mmsc - Structured Fax Format (SFF) java image reader/writer</title>
+<meta name="keywords" content="sff, structured fax format, modified huffman code">
+<meta name="description" content="Classes that enable the java imageio system to read and write *.sff (structured fax format) files.">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+Classes that enable the java imageio system to read and write *.sff (structured fax format) files.
+</div>
+<div id="desc">
+<p>
+In order to read/write sff files with the java imageio classes we need an
+ImageWriterSpi, ImageWriter, ImageReaderSpi and ImageReader.
+Additional to that we need to tell the java imageio system that we have a new ImageWriterSpi and ImageReaderSpi for it. 
+To do this you need to put the file <i>javax.imageio.spi.ImageReaderSpi, javax.imageio.spi.ImageWriterSpi</i> 
+into the folder <i>{$your java programs root directory}/META-INF/services/</i> or if those files already exist, 
+add the lines <i>uk.co.mmscomputing.imageio.sff.SFFImageReaderSpi</i> and <i>uk.co.mmscomputing.imageio.sff.SFFImageWriterSpi</i> accordingly.
+</p>
+<p class="remark">SFFWriter: You need to convert the image to black/white color space. 
+And if you want to use it as a fax scale it to 1728 width.
+</p>
+<p>SFF stands for <i>Structured Fax Format</i> and is defined in [1] Annex B.
+
+<p class="quote">[1] Common-ISDN-API Part I :<a href="http://www.capi.org/download/capi20-1.pdf" target="_blank">www.capi.org/download/capi20-1.pdf</a> CAPI Association e.V. [last accessed : 2003-06-24]</p>
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.imageio.sff
+<ol>
+<li><a href="SFFImageReader.java">SFFImageReader.java</a></li>
+<li><a href="SFFImageReaderSpi.java">SFFImageReaderSpi.java</a></li>
+<li><a href="SFFImageWriter.java">SFFImageWriter.java</a></li>
+<li><a href="SFFImageWriterSpi.java">SFFImageWriterSpi.java</a></li>
+<li><a href="SFFInputStream.java">SFFInputStream.java</a></li>
+<li><a href="SFFOutputStream.java">SFFOutputStream.java</a></li>
+<li><a href="javax.imageio.spi.ImageReaderSpi">javax.imageio.spi.ImageReaderSpi</a></li>
+<li><a href="javax.imageio.spi.ImageWriterSpi">javax.imageio.spi.ImageWriterSpi</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/application/imageviewer/index.html">uk.co.mmscomputing.application.imageviewer</a>:
+<br>A simple Multi Page Image Viewer Applet. To view multipage *.sff, *.tiff and *.gif files. Twain and SANE test application.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/index.html">uk.co.mmscomputing.device.capi</a>:
+<br>This open source software project connects the world of java with the Common-ISDN-API (CAPI). CAPI is an application programming interface standard used to access ISDN equipment.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/image/operators/index.html">uk.co.mmscomputing.image.operators</a>:
+<br>A few image operators.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/io/index.html">uk.co.mmscomputing.io</a>:
+<br>A few io-stream classes. Modified Huffman (MH), Modified READ (MR), Modified Modified READ (MMR), Base-64, PackBits, Little Endian
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

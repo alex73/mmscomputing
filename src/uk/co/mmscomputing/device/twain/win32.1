@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing - jtwain.dll: 32 bit windows c++ library for jtwain wrapper</title>
+<meta name="description" content="jtwain.dll : The jtwain c++ library for windows (32-bit version).">
+<link rel=StyleSheet href="../../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../../index.html">home</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+jtwain.dll : The jtwain c++ library for windows (32-bit version).
+</div>
+<div id="desc">
+<p>Windows jtwain.dll:
+	  <ol>
+	  <li>you need (i.e. Windows XP):
+	  <br> - c:\windows\twain_32.dll <b>OR</b> twain 2.0 c:\windows\system32\TWAINDSM.dll
+           <a href="http://www.twain.org">(download 32 bit data source manager from www.twain.org)</a>
+	  <br> - java sdk i.e. Sun's 1.4.2 which you will find by default in c:\j2sdk1.4.2
+	  <br> - c:\j2sdk1.4.2\include\jni.h   <em class="remark">(you need to put these in the compilers search path)</em>
+	  <br> - c:\j2sdk1.4.2\include\win32\jni_md.h
+	  <br> - twain.h (<a href="http://www.twain.org/">www.twain.org</a>)
+	  <br> - uk_co_mmscomputing_device_twain_jtwain.h
+          <li>open console and cd to jtwain.cpp directory
+	  <li>compile *.cpp and therefore generate the library jtwain.dll like this (Borland C++ 5.5):
+    <br>bcc32 -w-par -tWD -I"c:\borland\bcc55\include" -L"c:\Borland\Bcc55\lib;c:\borland\bcc55\lib\psdk" -e"jtwain.dll" *.cpp
+    <br><em class="remark">(Have a look at jtwain.bat)</em>
+    <br>If you know and trust me :) you can download <a href="jtwain.dll">jtwain.dll</a> here.
+
+	  <li>put jtwain.dll into library path of java program (4 possibilities):
+      <ol>
+      <li>use <i>-Djava.library.path=...</i> option, when you start the program. 
+      <!--<em class="remark">(See <a href="../../../application/answerphone/index.html">uk/co/mmscomputing/application/answerphone</a>.)</em>-->
+      <li>copy jtwain.dll to the java virtual machine's library folder <i>c:\j2sdk1.4.2\jre\bin</i> <em class="remark">(Available for all programs started with this jvm [java virtual machine])</em>
+      <li>or copy jtwain.dll to the operating system's library folder <i>c:\windows\system32</i>. 
+      <em class="remark">(Available for all java programs and jvms; Just remember: On a 64 bit system the 32 bit DSM library needs to into the Windows\SysWOW64 folder!)</em>
+      <li>or use <i>uk.co.mmscomputing.util.JarLib.load(...)</i>
+      </ol>
+    </ol>
+</p>
+<h2>How does it work ? What happens ?</h2>
+<p>I am using the triple <i>[DG_IMAGE/DAT_IMAGENATIVEXFER/MSG_GET]</i> to initiate the transfer
+  of an image from the data source to the application.
+  <br>Windows: The data source will transfer the image as a DIB (Device Independent Bitmap). The DIB is coded as a 1, 4 or 8 bit 
+  image with a colour table or as an 24bit RGB image. 
+  <br>bmp.cpp will create first a java.awt.image.IndexColorModel if necessary and
+  then call the jtwain-java-object to create a BufferedImage. 
+  After that the cpp-part just copies the data to the BufferedImage.
+</p>
+<p class="remark">
+  This means of course that we need to have space for two copies of the image in memory.
+  An A4 page scanned with 24bit and 600dpi is about 100MB !
+</p>
+
+<!--
+Msg : Start Cmd : c:\borland\bcc55\bin\bcc32 -w-par -tWD -I"c:\borland\bcc55\include" -L"c:\borland\bcc55\lib;c:\borland\bcc55\lib\psdk" -n"M:\public_html\java\uk\co\mmscomputing\device\twain\win32"  -e"jtwain.dll" "M:\public_html\java\uk\co\mmscomputing\device\twain\win32\*"    
+Msg : stdout: Borland C++ 5.5.1 for Win32 Copyright (c) 1993, 2000 Borland
+Msg : stdout: M:\public_html\java\uk\co\mmscomputing\device\twain\win32\jnu.cpp:
+Msg : stdout: M:\public_html\java\uk\co\mmscomputing\device\twain\win32\jtwain.cpp:
+Msg : stdout: M:\public_html\java\uk\co\mmscomputing\device\twain\win32\bmp.cpp:
+Msg : stdout: Turbo Incremental Link 5.00 Copyright (c) 1997, 2000 Borland
+Msg : Finished cmd : c:\borland\bcc55\bin\bcc32 -w-par -tWD -I"c:\borland\bcc55\include" -L"c:\borland\bcc55\lib;c:\borland\bcc55\lib\psdk" -n"M:\public_html\java\uk\co\mmscomputing\device\twain\win32"  -e"jtwain.dll" "M:\public_html\java\uk\co\mmscomputing\device\twain\win32\*"    
+--></div>
+<div id="files">
+Package : uk.co.mmscomputing.device.twain.win32
+<ol>
+<li><a href="../uk_co_mmscomputing_device_twain_jtwain.h">../uk_co_mmscomputing_device_twain_jtwain.h</a></li>
+<li><a href="bmp.cpp">bmp.cpp</a></li>
+<li><a href="bmp.h">bmp.h</a></li>
+<li><a href="jnu.cpp">jnu.cpp</a></li>
+<li><a href="jnu.h">jnu.h</a></li>
+<li><a href="jtwain.bat">jtwain.bat</a></li>
+<li><a href="jtwain.cpp">jtwain.cpp</a></li>
+<li><a href="jtwain.dll">jtwain.dll</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

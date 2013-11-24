@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mms-computing: uk.co.mmscomputing.application.install</title>
+<meta name="description" content="A simple installer for the <i>uk.co.mmscomputing</i> packages.">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+A simple installer for the <i>uk.co.mmscomputing</i> packages.
+</div>
+<div id="desc">
+<p><b>What is this for :</b>
+<br>This package is supposed to help with the installation of the mmsc packages, as far as possible.
+<p><b>What you need :</b>
+<ol>
+<li>The <a href="../../download/">mmsc.jar</a> file. This file includes all the *.java files and documentation. It does not include any *.class files except the ones concerning this package (uk.co.mmscomputing.application.install).
+<em class="remark">(mmsc.jar is the zipped version of this website.)</em>
+<li>A relatively up to date java sdk (<a href="http://java.sun.com" target="_blank">java.sun.com</a>).
+<em class="remark">(All the packages can still be compiled with a 1.4 sdk, but real time conversations within the answerphone application will need a 1.5 [aka 5.0] jvm)</em>
+<li>Optionally : A c++ compiler.
+<em class="remark">(For windows I test the code with the freely available bcc55 compiler from <a href="http://www.borland.com" target="_blank">www.borland.com</a>).</em>
+</ol>
+<p><b>What to do :</b>
+<ol>
+<li>If you have not already done so, download above software.
+<li>Put mmsc.jar in a directory of your choice.
+<li>Open a command line console and cd to your chosen directory.
+<li>Run command <i>java -jar mmsc.jar</i>.
+<em class="remark"><br>Windows : If the java sdk is setup nicely a double click on mmsc.jar should do the trick as well.
+</em>
+</ol>
+<p><b>What will happen :</b>
+<ol>
+<li>The command <i>java -jar mmsc.jar</i> will start <i>uk.co.mmscomputing.application.install.MainApp</i>.
+<li>The installer unzips mmsc.jar and hence creates the uncompressed package tree and documentation.
+<li>The installer compiles all the *.java files.
+<li>The installer starts the program <i>uk.co.mmscomputing.application.answerphone.MainApp</i>.
+</ol>
+<p><b>What will NOT happen :</b>
+<ol>
+<li>The installer does not compile the c++ files. 
+    <br><em class="remark">Windows (32bit) : The precompiled dll's should work.</em>
+    <br><em class="remark">Linux : The precompiled *.so's may not work.</em>
+</ol>
+</p>
+
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.application.install
+<ol>
+<li><a href="Engine.java">Engine.java</a></li>
+<li><a href="Log.java">Log.java</a></li>
+<li><a href="MainApp.java">MainApp.java</a></li>
+<li><a href="Setup.java">Setup.java</a></li>
+<li><a href="Unzip.java">Unzip.java</a></li>
+<li><a href="manifest.txt">manifest.txt</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mms-computing : java capi wrapper (linux, windows)</title>
+<meta name="keywords" content="java, capi, jcapi, isdn, sff, simple fax format, answer phone, fax machine">
+<meta name="description" content="This open source software project connects the world of java with the Common-ISDN-API (CAPI). CAPI is an application programming interface standard used to access ISDN equipment.">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../index.html">home</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/ctrl/index.html">ctrl</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/exception/index.html">exception</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/facility/index.html">facility</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/lin32/index.html">lin32</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/man/index.html">man</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/ncc/index.html">ncc</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/parameter/index.html">parameter</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/plc/index.html">plc</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/protocol/index.html">protocol</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/q931/index.html">q931</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/samples/index.html">samples</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/sound/index.html">sound</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/win32/index.html">win32</a></li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/win64/index.html">win64</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+This open source software project connects the world of java with the Common-ISDN-API (CAPI). CAPI is an application programming interface standard used to access ISDN equipment.
+</div>
+<div id="desc">
+<p>The jcapi-project consists of the following components :
+<ol>
+<li>An operating-system dependend c++ library (jcapi.cpp), that simply converts java function calls into c++ function calls. [2],[3]
+<li>A java class that can access this above mentioned library (jcapi.java). [3]
+<li>A set of classes that simplify the task to handle capi messages (StructIn.java, MsgIn.java, StructOut.java, MsgOut.java, ...). [1]
+<li>Predefined message classes : controller messages (uk.co.mmscomputing.device.capi.ctrl.*), physical link messages (uk.co.mmscomputing.device.capi.plc.*), network control messages (uk.co.mmscomputing.device.capi.ncc.*). [1]
+<li>A few example programs (uk.co.mmscomputing.device.capi.samples.*)
+<li>A bare bone class frame work for capi applications (CapiApplication.java, CapiEnumerator.java, CapiController.java, ...).
+CapiApplication uses the usual Listener paradigm to communicate with the rest of the application 
+(Metadata.java, CapiMetadata.java).
+<li>CapiSystem sets up a CapiServerApplication that is used i.e. by the mmsc-answerphone application.
+</ol>
+</p>
+
+<p>
+The loop for receiving capi messages is in CapiApplication. CapiCallApplication deals with outgoing calls
+and CapiServerApplication with incoming calls.
+</p>
+
+<p class="quote">
+<p>[1] Common-ISDN-API Part I :<a href="http://www.capi.org/download/capi20-1.pdf" target="_blank">www.capi.org/download/capi20-1.pdf</a> CAPI Association e.V. [last accessed : 2003-06-24]</p>
+<p>[2] Common-ISDN-API Part II :<a href="http://www.capi.org/download/capi20-2.pdf" target="_blank">www.capi.org/download/capi20-2.pdf</a> CAPI Association e.V. [last accessed : 2003-06-24]</p>
+<p>[3] Sheng Liang (1999), The Java Native Interface, SUN, Palo Alto</p>
+</p>
+
+
+</div>
+<div id="files">
+Package : uk.co.mmscomputing.device.capi
+<ol>
+<li><a href="CapiApplication.java">CapiApplication.java</a></li>
+<li><a href="CapiCallApplication.java">CapiCallApplication.java</a></li>
+<li><a href="CapiChannel.java">CapiChannel.java</a></li>
+<li><a href="CapiConfMsg.java">CapiConfMsg.java</a></li>
+<li><a href="CapiConstants.java">CapiConstants.java</a></li>
+<li><a href="CapiController.java">CapiController.java</a></li>
+<li><a href="CapiEnumerator.java">CapiEnumerator.java</a></li>
+<li><a href="CapiFaxDetector.java">CapiFaxDetector.java</a></li>
+<li><a href="CapiFaxSender.java">CapiFaxSender.java</a></li>
+<li><a href="CapiFaxSender.java">CapiFaxSender.java</a></li>
+<li><a href="CapiIndMsg.java">CapiIndMsg.java</a></li>
+<li><a href="CapiInfoPlugin.java">CapiInfoPlugin.java</a></li>
+<li><a href="CapiInputStream.java">CapiInputStream.java</a></li>
+<li><a href="CapiMetadata.java">CapiMetadata.java</a></li>
+<li><a href="CapiNCC.java">CapiNCC.java</a></li>
+<li><a href="CapiOutputStream.java">CapiOutputStream.java</a></li>
+<li><a href="CapiPLC.java">CapiPLC.java</a></li>
+<li><a href="CapiPanel.java">CapiPanel.java</a></li>
+<li><a href="CapiPhoneCaller.java">CapiPhoneCaller.java</a></li>
+<li><a href="CapiPlugin.java">CapiPlugin.java</a></li>
+<li><a href="CapiProfile.java">CapiProfile.java</a></li>
+<li><a href="CapiSMSPlugin.java">CapiSMSPlugin.java</a></li>
+<li><a href="CapiServerApplication.java">CapiServerApplication.java</a></li>
+<li><a href="CapiSystem.java">CapiSystem.java</a></li>
+<li><a href="CapiVoicePlugin.java">CapiVoicePlugin.java</a></li>
+<li><a href="MsgIn.java">MsgIn.java</a></li>
+<li><a href="MsgOut.java">MsgOut.java</a></li>
+<li><a href="Rider.java">Rider.java</a></li>
+<li><a href="StructOut.java">StructOut.java</a></li>
+<li><a href="jcapi.java">jcapi.java</a></li>
+<li><a href="uk_co_mmscomputing_device_capi_jcapi.h">uk_co_mmscomputing_device_capi_jcapi.h</a></li>
+</ol>
+</div>
+<div id="dirlist">
+sub-directories:
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/ctrl/index.html">uk.co.mmscomputing.device.capi.ctrl</a>:
+<br>capi messages that do not need a plci yet.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/exception/index.html">uk.co.mmscomputing.device.capi.exception</a>:
+<br>exceptions thrown by capi system.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/facility/index.html">uk.co.mmscomputing.device.capi.facility</a>:
+<br>Classes that handle capi facility messages.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/lin32/index.html">uk.co.mmscomputing.device.capi.lin32</a>:
+<br>libjcapi.so : The jcapi c++ library for linux (32-bit version).
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/man/index.html">uk.co.mmscomputing.device.capi.man</a>:
+<br>Capi Manufacturer Messages
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/ncc/index.html">uk.co.mmscomputing.device.capi.ncc</a>:
+<br>capi messages that need a valid ncci.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/parameter/index.html">uk.co.mmscomputing.device.capi.parameter</a>:
+<br>some capi parameter.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/plc/index.html">uk.co.mmscomputing.device.capi.plc</a>:
+<br>capi messages that need a valid plci.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/protocol/index.html">uk.co.mmscomputing.device.capi.protocol</a>:
+<br>A few simple predefined capi protocol structs.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/q931/index.html">uk.co.mmscomputing.device.capi.q931</a>:
+<br>A Few Q.931 Information Elements CAPI uses.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/samples/index.html">uk.co.mmscomputing.device.capi.samples</a>:
+<br>A few simple capi test programs.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/sound/index.html">uk.co.mmscomputing.device.capi.sound</a>:
+<br>Classes that turn the CAPI device audio streams into an A-Law, u-Law or PCM stream.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/win32/index.html">uk.co.mmscomputing.device.capi.win32</a>:
+<br>jcapi.dll : The jcapi c++ library for windows (32-bit version).
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/device/capi/win64/index.html">uk.co.mmscomputing.device.capi.win64</a>:
+<br>jcapi.dll : The jcapi c++ library for windows (amd64-bit version).
+</li>
+</ol>
+</div>
+<div id="projects">
+Projects :
+<ol>
+<li><a href="../../../../../uk/co/mmscomputing/concurrent/index.html">uk.co.mmscomputing.concurrent</a>:
+<br>Helper classes for concurrent programming.
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/io/index.html">uk.co.mmscomputing.io</a>:
+<br>A few io-stream classes. Modified Huffman (MH), Modified READ (MR), Modified Modified READ (MMR), Base-64, PackBits, Little Endian
+</li>
+<li><a href="../../../../../uk/co/mmscomputing/util/index.html">uk.co.mmscomputing.util</a>:
+<br>A few useful utility classes
+</li>
+</ol>
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

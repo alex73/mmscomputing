@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing - sms client applet</title>
+<meta name="description" content="sms bttext bt-text fixed landline telephone applet">
+<meta name="keywords" content="java sms bttext bt-text fixed landline telephone">
+<link rel=StyleSheet href="../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+
+
+
+<div id="nav">
+<ul>
+<li>&nbsp;</li>
+<li><a href="../../../../../">home</a></li>
+<li><a href="./">up</a></li>
+<li>&nbsp;</li>
+<li><a href="applet.html">reload applet</a></li>
+</ul>
+</div>
+<div id="content">
+
+<div id="abstract">mmsc - sms client application : test program for sending and receiving SMS. 
+</div>
+
+<div id="desc">
+
+<p>This SMS client can send an SMS via <a href="http://www.bt.com/bttext/" target="_blank">BT-Text</a>.
+The connection to the service center is established via a CAPI capable terminal adapter. 
+</p>
+<p class="remark">In other words; the connection to the service center is established via a fixed telephone line. 
+(NOT the Internet or mobile phone!)
+Almost all CAPI terminal adapters need an ISDN line. The only exception I know of is the Eicon Analogue Card that connects to an analogue line.
+Your telephone provider (i.e. BT) will charge you for every sent SMS !
+</p>
+<p>The standards involved are as follows:</p>
+<pre>
+
+      ETS 300 659-1/2       
+ ETSI ES  201 912 V1.2.1 (only Protocol 1)
+ ETSI TS  123 040
+
+</pre>
+<!-- 3GPP TS 23.038 V7.0.0 -->
+<p class="remark">This means that it might as well work with various other providers: i.e. Deutsche Telekom and France T&eacute;l&eacute;com (unconfirmed).
+</p>
+
+<p>
+To register with BT-Text send an SMS to 00000 with text <i>register</i> or <i>reset</i>.
+The service center number for sending is (1470)1709400X. Prepend 1470 if you usually withhold your number!
+The service center number for receiving is (0)80058752X0.
+The default subaddress X is 9.
+</p>
+<p class="remark">
+Unfortunately one may not be able to receive SMSs from all british mobile phone providers. 
+
+<br>I.e.: T-Mobile and Virgin used to use a different service provider (07953966066) which converted the text always to speech.
+This seems to have changed now (2006-12-26).
+
+<br>Vodaphone, T-Mobile and Virgin work.
+
+</p>
+<br><br>
+  
+<applet
+code="uk.co.mmscomputing.application.smsclient.MainApp.class"
+archive="uk.co.mmscomputing.application.smsclient.jar"
+width =800
+height=400
+>
+</applet>
+
+
+<p>This is an applet that needs access to a native library (jcapi.dll or libjcapi.so). 
+The applet will only be able to access this library 
+if you accept the security certificate it was signed with.
+But be aware: If you accept the certificate the applet has full access to your computer!
+</p>
+
+</div>
+</div>
+
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<a href="../../../../../uk/co/mmscomputing/donation/"><img src="../../../../../uk/co/mmscomputing/donation/donation.png" border="0" alt="Make a donation" /></a>
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2006-11-22
+</div>
+</div>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+

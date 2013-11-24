@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mm's computing - jtwain.dll: 64 bit windows c++ library for jtwain wrapper</title>
+<meta name="description" content="jtwain.dll : The jtwain c++ library for windows (64-bit version).">
+<link rel=StyleSheet href="../../../../../../css/general.css" type="text/css" title="mmsc-style" media="screen">
+<link rel=StyleSheet href="../../../../../../css/print.css" type="text/css" title="mmsc-style" media="print">
+</head>
+<body>
+<div id="container">
+<div id="header"><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing</div>
+<div id="menu">
+<ul>
+<li><a href="../../../../../../index.html">home</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/news/index.html">news</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/download/index.html">download</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/donation/index.html">donation</a></li>
+<li><a href="../../../../../../uk/co/mmscomputing/contact/index.html">contact</a></li>
+</ul>
+</div>
+<div id="nav">&nbsp;
+<div class="roundrect">
+<div class="roundrect-top"><div></div></div>
+<div class="roundrect-left"><div class="roundrect-right">
+<div class="roundrect-gradient"><b>sub-directories</b></div>
+<ul>
+<li><a href="../index.html">up</a></li>
+</ul>
+</div></div>
+<div class="roundrect-bottom"><div></div></div>
+</div>
+</div>
+<div id="content">
+<div id="abstract">
+jtwain.dll : The jtwain c++ library for windows (64-bit version).
+</div>
+<div id="desc">
+<p>Windows jtwain.dll:
+	  <ol>
+	  <li>you need (i.e. Windows XP 64, Windows Vista 64):
+	  <br> - c:\windows\System32\TWAINDSM.dll <a href="http://www.twain.org">(download <b>64 bit</b> data source manager from www.twain.org)</a>
+	  <br> - c:\windows\SysWOW64\TWAINDSM.dll <a href="http://www.twain.org">(download <b>32 bit</b> data source manager from www.twain.org)</a>
+    <br> - c:\windows\twain_64 (XP: does exist, Vista: needs to be created. DSM will not load if folder does not exist.)
+	  <br> - java sdk i.e. Sun's 1.6.0 u12 which you will find by default in c:\Program Files\Java\jdk1.6.0_12.
+    <br>   This is the first java version with a 64 bit web browser plugin.
+	  <br> - c:\Program Files\Java\jdk1.6.0_12\include\jni.h   <em class="remark">(you need to put these in the compilers search path)</em>
+	  <br> - c:\Program Files\Java\jdk1.6.0_12\include\win32\jni_md.h
+	  <br> - twain.h (<a href="http://www.twain.org/">(download twain 2.0 headers from www.twain.org</a>)
+	  <br> - uk_co_mmscomputing_device_twain_jtwain.h
+    <li>open console and cd to jtwain.cpp directory
+	  <li>compile *.cpp and therefore generate the library jtwain.dll like this:
+    <br>
+    <br>Windows XP 64:
+    <br>Download and Install: Microsoft Platform SDK for Windows Server 2003 SP1
+    <br>open console with XP X64-bit IE 6.0 DEBUG BUILD Environment
+    <br><i>start|all Programs|Microsoft Platform SDK ...|Open Build Environment ... |Windows XP 64 ... |Set Windows XP 64 ... Environment</i>
+    <br>cl /LD jtwain.cpp jnu.cpp bmp.cpp user32.lib bufferoverflowU.lib
+    <br>
+    <br>Windows Vista 64:
+    <br>Download and Install: Microsoft Platform SDK for Windows Server 2008
+    <br>SDK 2008: Targeting Windows Server 2008 x64 DEBUG
+    <br>cl /LD jtwain.cpp jnu.cpp bmp.cpp user32.lib
+    <br>
+    <br>If you know and trust me :) you can download <a href="jtwain.dll">jtwain.dll</a> here.
+
+	  <li>put jtwain.dll into library path of java program (4 possibilities):
+      <ol>
+      <li>use <i>-Djava.library.path=...</i> option, when you start the program. 
+      <!--<em class="remark">(See <a href="../../../application/answerphone/index.html">uk/co/mmscomputing/application/answerphone</a>.)</em>-->
+      <li>copy jtwain.dll to the java virtual machine's library folder <i>c:\Program Files\Java\jdk1.6.0_12\jre\bin</i> <em class="remark">(Available for all programs started with this jvm [java virtual machine])</em>
+      <li>or copy jtwain.dll to the operating system's library folder <i>c:\windows\System32</i>. 
+      <em class="remark">(Available for all java programs and jvms; Just remember on 64 bit systems: 32 bit libraries go into SysWOW64 and 64 bit libraries into System32)</em>
+      <li>or use <i>uk.co.mmscomputing.util.JarLib.load(...)</i>
+      </ol>
+    </ol>
+</p>
+
+<!--
+Msg : Start Cmd : c:\borland\bcc55\bin\bcc32 -w-par -tWD -I"c:\borland\bcc55\include" -L"c:\borland\bcc55\lib;c:\borland\bcc55\lib\psdk" -n"M:\public_html\java\uk\co\mmscomputing\device\twain\win32"  -e"jtwain.dll" "M:\public_html\java\uk\co\mmscomputing\device\twain\win32\*"    
+Msg : stdout: Borland C++ 5.5.1 for Win32 Copyright (c) 1993, 2000 Borland
+Msg : stdout: M:\public_html\java\uk\co\mmscomputing\device\twain\win32\jnu.cpp:
+Msg : stdout: M:\public_html\java\uk\co\mmscomputing\device\twain\win32\jtwain.cpp:
+Msg : stdout: M:\public_html\java\uk\co\mmscomputing\device\twain\win32\bmp.cpp:
+Msg : stdout: Turbo Incremental Link 5.00 Copyright (c) 1997, 2000 Borland
+Msg : Finished cmd : c:\borland\bcc55\bin\bcc32 -w-par -tWD -I"c:\borland\bcc55\include" -L"c:\borland\bcc55\lib;c:\borland\bcc55\lib\psdk" -n"M:\public_html\java\uk\co\mmscomputing\device\twain\win32"  -e"jtwain.dll" "M:\public_html\java\uk\co\mmscomputing\device\twain\win32\*"    
+--></div>
+<div id="files">
+Package : uk.co.mmscomputing.device.twain.win64
+<ol>
+<li><a href="../uk_co_mmscomputing_device_twain_jtwain.h">../uk_co_mmscomputing_device_twain_jtwain.h</a></li>
+<li><a href="bmp.cpp">bmp.cpp</a></li>
+<li><a href="bmp.h">bmp.h</a></li>
+<li><a href="jnu.cpp">jnu.cpp</a></li>
+<li><a href="jnu.h">jnu.h</a></li>
+<li><a href="jtwain.cpp">jtwain.cpp</a></li>
+<li><a href="jtwain.dll">jtwain.dll</a></li>
+</ol>
+</div>
+<div id="dirlist">
+</div>
+<div id="projects">
+</div>
+</div>
+<div id="fcontainer">
+<div id="gnu">
+All software on this site is free software; you can redistribute it and/or modify it under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html" target="_blank"> GNU Lesser General Public License </a> as published by the Free Software Foundation
+</div>
+<div id="footer">
+<br><FONT COLOR="#0000ff">m</FONT><FONT COLOR="#ff0000">m</FONT>'<FONT COLOR="#7bc618">s</FONT> <FONT COLOR="#ffff00">c</FONT>omputing<br>2010-03-04
+</div>
+</div>
+</div>
+</body>
+</html>

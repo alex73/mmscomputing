@@ -1,0 +1,276 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: #B0BFC2;
+	color: #000;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	font-size: 9pt;
+}
+
+#header
+{
+	font-size: 20pt;
+	background: #eee;
+	padding: 5px 3%;
+	text-align: right;
+}
+
+#container
+{
+	width: 1100px;
+	margin: 0 auto;	
+	padding: 0;	
+	font-size: 9pt;
+	background: #fff;
+}
+
+#menu
+{
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+} 
+
+#menu ul
+{
+	margin-top: 0;
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	background: #eee;
+	float: left;
+	width: 100%;
+}
+
+#menu ul li
+{
+	display: inline;
+	float: left;
+}
+
+#menu ul a
+{
+	display: block;
+	float: left;
+	padding: .2em 1em;
+	text-decoration: none;
+	color: #000;
+	background: #eee;
+	border-right: 1px solid #fff;
+}
+
+#menu ul a:hover
+{
+	background: #bbb;
+	color: #fff;
+}
+
+#nav
+{
+	float: left;
+	width: 150px;
+	margin: 0;
+	padding: 0;
+	display: inline;
+	color: #996666;
+	text-align: left;
+} 
+
+#nav ul
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: right;
+}
+
+#nav li
+{
+	padding: 0 5px 0px 0;
+}
+
+#menu ul a
+{
+	text-decoration: none;
+	color: #000;
+}
+
+#content
+{
+	text-align: left;
+	float: left;
+	width: 900px;
+	padding: 1em 1% 1em 1%;
+	margin: 0;
+} 
+
+#content100
+{
+	width: 98%;
+	text-align: left;
+	float: left;
+	padding: 1em 1% 1em 1%;
+	margin: 0;
+} 
+
+#abstract
+{
+	font-size: 10pt;
+	border: 1px solid #000;
+	margin: 5px;
+	padding: 5px;
+}
+
+#desc
+{
+	font-size: 10pt;
+}
+
+#desc ol li ol
+{
+	list-style-type: lower-alpha;
+}
+
+#desc ol li p
+{
+	padding: 0;
+	margin: 0;
+}
+
+#dirlist
+{
+	font-weight: bold;
+}
+
+#dirlist ol
+{
+	font-weight: normal;
+}
+
+#files
+{
+	font-weight: bold;
+}
+
+#files ol
+{
+	font-weight: normal;
+}
+
+#projects
+{
+	font-weight: bold;
+}
+
+#projects ol
+{
+	font-weight: normal;
+}
+
+#fcontainer
+{
+	clear: both;
+}
+
+#gnu
+{
+	padding: 5px 3%;
+	text-align: center;
+	font-size: smaller;
+	color: #996666;
+}
+
+#footer
+{
+	margin: 0;
+	padding: 0;
+	background: #eee;
+	text-align: center;
+}
+
+.remark {
+	font-size: smaller ;
+	color: #996666;
+}
+
+.reference {
+		font-size: smaller ;
+		color: #996666;
+}
+
+A:ACTIVE {
+		font-family: sans-serif;
+		color: blue;
+}
+
+A:LINK {
+		font-family: sans-serif;
+		text-decoration: none;
+		color: blue;
+}
+
+A:VISITED {
+		font-family: sans-serif;
+		color: maroon;
+}
+
+pre
+{
+	font-family: "Courier New", Courier, monospace;
+	font-size: 9pt;
+}
+
+.roundrect {
+	margin:0 10px 0 10px;
+}
+
+.roundrect b {
+	margin:0 10px 0 10px;
+}
+
+.roundrect-top {
+	background:url("../images/roundrectgrad.png") no-repeat 100% 0;
+	margin:0 0 0 10px;
+	height:8px;
+}
+.roundrect-top div {
+	background:url("../images/roundrectgrad.png") no-repeat 0 0;
+	height:8px;
+	width: 10px;
+	left: -10px;
+	position:relative;
+	overflow:hidden;
+}
+.roundrect-left {
+        background:url("../images/border.png") repeat-y 0 0;
+	padding: 0 0 0 1px;
+	}
+.roundrect-right {
+        background:url("../images/border.png") repeat-y 100% 0;
+        padding: 0 1px 0 0;
+}
+.roundrect-gradient {
+	background:url("../images/gradient.png") repeat-x 0 0;
+	margin:0 0 0 0;
+	padding:0 0 3px 0;
+	display:inline;
+	border-bottom: 1px solid #999;
+}
+
+div.roundrect-gradient{
+	display:block;
+}
+
+.roundrect-bottom {
+        background:url("../images/roundrect.png") no-repeat 100% 100%;
+        margin: 0 0 0 10px;
+        height: 10px;
+}
+.roundrect-bottom div {
+        background:url("../images/roundrect.png") no-repeat 0 100%;
+        height: 10px;
+        width: 10px;
+        position:relative;
+        left: -10px;
+}
+ 

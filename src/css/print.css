@@ -1,0 +1,137 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: #B0BFC2;
+	color: #000;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	font-size: 9pt;
+}
+
+#header
+{
+	display: none;
+}
+
+#container
+{
+	width: 1024px;
+	margin: 0;	
+	padding: 0;	
+	font-size: 9pt;
+	text-align: left;
+	background: #fff;
+}
+
+#menu
+{
+	display: none;
+} 
+
+#nav
+{
+	display: none;
+} 
+
+#content
+{
+	float: left;
+	width: 900px;
+	padding: 1em 1% 1em 1%;
+	margin: 0;
+} 
+
+#abstract
+{
+	font-size: 10pt;
+	border: 1px solid #000;
+	margin: 5px;
+	padding: 5px;
+}
+
+#desc
+{
+	font-size: 10pt;
+}
+
+#desc ol li ol
+{
+	list-style-type: lower-alpha;
+}
+
+#desc ol li p
+{
+	padding: 0;
+	margin: 0;
+}
+
+#dirlist
+{
+	font-weight: bold;
+}
+
+#dirlist ol
+{
+	font-weight: normal;
+}
+
+#files
+{
+	font-weight: bold;
+}
+
+#files ol
+{
+	font-weight: normal;
+}
+
+#projects
+{
+	font-weight: bold;
+}
+
+#projects ol
+{
+	font-weight: normal;
+}
+
+#fcontainer
+{
+	clear: both;
+	display: none;
+}
+
+#gnu
+{
+	padding: 5px 3%;
+	text-align: center;
+	font-size: smaller;
+	color: #996666;
+}
+
+#footer
+{
+	display: none;
+}
+
+.remark {
+		font-size: smaller ;
+		color: #996666;
+}
+
+.reference {
+		font-size: smaller ;
+		color: #996666;
+}
+
+a
+{
+	color: #000;
+	text-decoration: none;
+}
+
+pre
+{
+	font-family: "Courier New", Courier, monospace;
+	font-size: 7pt;
+}
